@@ -113,6 +113,14 @@ git config --global user.email "you@example.com"
 
 Then run `git commit` again.
 
+**If GitHub rejects the push** with **GH007** (“would publish a private email address”), set your commit email to GitHub’s **noreply** address (GitHub → **Settings** → **Emails** — copy the one that looks like `12345678+YOUR_USERNAME@users.noreply.github.com`). For this repo only:
+
+```powershell
+git config user.email "12345678+YOUR_USERNAME@users.noreply.github.com"
+```
+
+Then amend the last commit if needed: `git commit --amend --reset-author --no-edit`, and push again.
+
 ### 6. Add GitHub as a remote (first time only)
 
 Replace the URL with **your** repository URL from Part B:
@@ -188,6 +196,7 @@ git push github master
 | `remote github already exists` | Use another name (`github2`) or `git remote remove github` and add again (only if you know what you are doing). |
 | `failed to push` / `rejected` | Someone else pushed first, or the remote has commits you do not have. For a solo first-time push to an **empty** repo, ensure the GitHub repo was created **without** a README. If needed, ask for help with `git pull --rebase` before pushing. |
 | `Authentication failed` | Use a **Personal Access Token** instead of your GitHub password for HTTPS. |
+| `GH007` / private email | Use GitHub **noreply** email in `git config user.email` (see note under Part D step 5). |
 | Huge upload / timeout | Large files may be blocked; keep `exports/`, `data/`, and venv folders **ignored** (see `.gitignore`). |
 
 ---

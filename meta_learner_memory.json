@@ -1,0 +1,4204 @@
+{
+  "experiments": [
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 5,
+        "n_numeric": 3,
+        "n_categorical": 1,
+        "class_imbalance": 1.012072434607646,
+        "mean_correlation": 0.013813295450859164,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.06385471427788542
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.51,
+      "accuracy": 0.51
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 5,
+        "n_numeric": 3,
+        "n_categorical": 1,
+        "class_imbalance": 1.012072434607646,
+        "mean_correlation": 0.013813295450859164,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.06385471427788542
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.5333325810576995,
+      "accuracy": 0.535
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 5,
+        "n_numeric": 3,
+        "n_categorical": 1,
+        "class_imbalance": 1.012072434607646,
+        "mean_correlation": 0.013813295450859164,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.06385471427788542
+      },
+      "model_name": "XGBoost",
+      "f1_score": 0.529717887154862,
+      "accuracy": 0.53
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 5,
+        "n_numeric": 3,
+        "n_categorical": 1,
+        "class_imbalance": 1.012072434607646,
+        "mean_correlation": 0.013813295450859164,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.06385471427788542
+      },
+      "model_name": "LightGBM",
+      "f1_score": 0.47422222222222216,
+      "accuracy": 0.48
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 5,
+        "n_numeric": 3,
+        "n_categorical": 1,
+        "class_imbalance": 1.012072434607646,
+        "mean_correlation": 0.013813295450859164,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.06385471427788542
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.5769565217391305,
+      "accuracy": 0.58
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 5,
+        "n_numeric": 3,
+        "n_categorical": 1,
+        "class_imbalance": 1.012072434607646,
+        "mean_correlation": 0.013813295450859164,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.06385471427788542
+      },
+      "model_name": "ExtraTrees",
+      "f1_score": 0.54,
+      "accuracy": 0.54
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 5,
+        "n_numeric": 3,
+        "n_categorical": 1,
+        "class_imbalance": 1.012072434607646,
+        "mean_correlation": 0.013813295450859164,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.06385471427788542
+      },
+      "model_name": "HistGradientBoosting",
+      "f1_score": 0.49939945951356224,
+      "accuracy": 0.5
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "ExtraTrees",
+      "f1_score": 0.8743131159943167,
+      "accuracy": 0.9065752128666036
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "HistGradientBoosting",
+      "f1_score": 0.8776587346646507,
+      "accuracy": 0.907718385367392
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "AdaBoost",
+      "f1_score": 0.8804566144086087,
+      "accuracy": 0.9063386944181646
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.8788919325333253,
+      "accuracy": 0.90740302743614
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "XGBoost",
+      "f1_score": 0.8783988165428541,
+      "accuracy": 0.9065752128666036
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LightGBM",
+      "f1_score": 0.8754998566476989,
+      "accuracy": 0.9068117313150426
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "ExtraTrees",
+      "f1_score": 0.8743164468210685,
+      "accuracy": 0.8966611479028698
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "HistGradientBoosting",
+      "f1_score": 0.876435872530727,
+      "accuracy": 0.907718385367392
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "XGBoost",
+      "f1_score": 0.8783988165428541,
+      "accuracy": 0.9065752128666036
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "DecisionTree",
+      "f1_score": 0.8535551127657058,
+      "accuracy": 0.8489632608010091
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.8788919325333253,
+      "accuracy": 0.90740302743614
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.8788919325333253,
+      "accuracy": 0.90740302743614
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.8788919325333253,
+      "accuracy": 0.90740302743614
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.8788919325333253,
+      "accuracy": 0.90740302743614
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.8788919325333253,
+      "accuracy": 0.90740302743614
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "XGBoost",
+      "f1_score": 0.8783988165428541,
+      "accuracy": 0.9065752128666036
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "XGBoost",
+      "f1_score": 0.8783988165428541,
+      "accuracy": 0.9065752128666036
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802304796556135,
+      "accuracy": 0.908
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "ExtraTrees",
+      "f1_score": 0.8653660950303264,
+      "accuracy": 0.895
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "HistGradientBoosting",
+      "f1_score": 0.862932475806549,
+      "accuracy": 0.887
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802304796556135,
+      "accuracy": 0.908
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "ExtraTrees",
+      "f1_score": 0.8653660950303264,
+      "accuracy": 0.895
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "HistGradientBoosting",
+      "f1_score": 0.862932475806549,
+      "accuracy": 0.887
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802304796556135,
+      "accuracy": 0.908
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "ExtraTrees",
+      "f1_score": 0.8653660950303264,
+      "accuracy": 0.895
+    },
+    {
+      "meta_features": {
+        "n_rows": 5000,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.309278350515465,
+        "mean_correlation": 0.10835205816998754,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.818508172280767
+      },
+      "model_name": "HistGradientBoosting",
+      "f1_score": 0.862932475806549,
+      "accuracy": 0.887
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.8788919325333253,
+      "accuracy": 0.90740302743614
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "XGBoost",
+      "f1_score": 0.8785679460538734,
+      "accuracy": 0.9069102806685588
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "DecisionTree",
+      "f1_score": 0.8535551127657058,
+      "accuracy": 0.8489632608010091
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "DecisionTree",
+      "f1_score": 0.8535551127657058,
+      "accuracy": 0.8489632608010091
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "XGBoost",
+      "f1_score": 0.8785679460538734,
+      "accuracy": 0.9069102806685588
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.8788919325333253,
+      "accuracy": 0.90740302743614
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.8747074503671688,
+      "accuracy": 0.9017462945443078
+    },
+    {
+      "meta_features": {
+        "n_rows": 253680,
+        "n_cols": 22,
+        "n_numeric": 21,
+        "n_categorical": 0,
+        "class_imbalance": 9.617335621311682,
+        "mean_correlation": 0.10830187735283586,
+        "missing_percentage": 0.0,
+        "skewness_mean": 1.82046604667763
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.8802458256526925,
+      "accuracy": 0.9070679596341849
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "LogisticRegression",
+      "f1_score": 0.9349756097560976,
+      "accuracy": 0.935
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "RandomForest",
+      "f1_score": 0.96,
+      "accuracy": 0.96
+    },
+    {
+      "meta_features": {
+        "n_rows": 1000,
+        "n_cols": 21,
+        "n_numeric": 20,
+        "n_categorical": 0,
+        "class_imbalance": 1.028397565922921,
+        "mean_correlation": 0.14411577514281876,
+        "missing_percentage": 0.0,
+        "skewness_mean": 0.15025134446871857
+      },
+      "model_name": "GradientBoosting",
+      "f1_score": 0.9649868667917448,
+      "accuracy": 0.965
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+﻿# Speed up indexing / reduce noise (same spirit as .vscode files.exclude)
+.venv/
+.venv312/
+venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.pytest_tmp/
+.uv-cache/
+exports/
+mlruns/
+catboost_info/
+logs/
+memory/
+models/
+database/
+*.db
+mlflow.db
+node_modules/

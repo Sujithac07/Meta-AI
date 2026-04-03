@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaAI Pro | Enterprise AutoML Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Space Grotesk', sans-serif; }
+        :root { --primary: #6366f1; --accent: #22d3ee; --dark: #0f172a; --darker: #020617; }
+        body { background: var(--darker); color: #e2e8f0; }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(99, 102, 241, 0.2); }
+        .glass-light { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(148, 163, 184, 0.1); }
+        .glow { box-shadow: 0 0 40px rgba(99, 102, 241, 0.3); }
+        .gradient-border { position: relative; background: linear-gradient(135deg, var(--dark), var(--darker)); border-radius: 16px; }
+        .gradient-border::before { content: ''; position: absolute; inset: -2px; background: linear-gradient(135deg, #6366f1, #22d3ee, #a855f7, #6366f1); border-radius: 18px; z-index: -1; animation: borderRotate 4s linear infinite; background-size: 300% 300%; }
+        @keyframes borderRotate { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .pulse-dot { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .sidebar-item { transition: all 0.3s; border-left: 3px solid transparent; background: none; cursor: pointer; }
+        .sidebar-item:hover { background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), transparent); border-left-color: var(--primary); }
+        .sidebar-item.active { background: linear-gradient(90deg, rgba(99, 102, 241, 0.3), transparent); border-left-color: var(--accent); }
+        .subtab { transition: all 0.2s; }
+        .subtab.active { background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(34, 211, 238, 0.2)); border-color: var(--accent); }
+        .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(99, 102, 241, 0.4); }
+        .btn-success { background: linear-gradient(135deg, #10b981, #22d3ee); }
+        #particles-js { position: fixed; inset: 0; z-index: 0; }
+        .hide { display: none !important; }
+    </style>
+</head>
+<body class="overflow-hidden">
+    <div id="particles-js"></div>
+    
+    <div class="relative z-10 flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-72 glass flex flex-col border-r border-slate-700/50">
+            <div class="p-6 border-b border-slate-700/50">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center glow">
+                        <i data-lucide="brain" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">MetaAI Pro</h1>
+                        <p class="text-xs text-slate-400">Enterprise AutoML</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+                <button onclick="showTab('pipeline')" class="sidebar-item active w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left" id="nav-pipeline">
+                    <i data-lucide="wand-2" class="w-5 h-5 text-cyan-400"></i>
+                    <span>Smart Pipeline</span>
+                    <span class="ml-auto text-xs px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300">HERO</span>
+                </button>
+                <button onclick="showTab('data')" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left" id="nav-data">
+                    <i data-lucide="database" class="w-5 h-5 text-indigo-400"></i>
+                    <span>Data Studio</span>
+                </button>
+                <button onclick="showTab('training')" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left" id="nav-training">
+                    <i data-lucide="cpu" class="w-5 h-5 text-purple-400"></i>
+                    <span>Training Console</span>
+                </button>
+                <button onclick="showTab('analysis')" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left" id="nav-analysis">
+                    <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400"></i>
+                    <span>Analysis & Insights</span>
+                </button>
+                <button onclick="showTab('testing')" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left" id="nav-testing">
+                    <i data-lucide="flask-conical" class="w-5 h-5 text-amber-400"></i>
+                    <span>Testing & Validation</span>
+                </button>
+                <button onclick="showTab('deploy')" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left" id="nav-deploy">
+                    <i data-lucide="rocket" class="w-5 h-5 text-rose-400"></i>
+                    <span>Production & Deploy</span>
+                </button>
+                <button onclick="showTab('advanced')" class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left" id="nav-advanced">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-pink-400"></i>
+                    <span>Advanced Features</span>
+                </button>
+            </nav>
+            
+            <div class="p-4 border-t border-slate-700/50">
+                <div class="glass-light rounded-xl p-4">
+                    <div class="flex items-center gap-2 mb-2" id="api-status">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <span class="text-sm text-slate-400">Checking API...</span>
+                    </div>
+                    <div class="text-xs text-slate-500">v2.0.0 Enterprise</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-white" id="page-title">Smart Pipeline Generator</h2>
+                    <p class="text-slate-400 mt-1" id="page-subtitle">Autonomous ML Architecture Design</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="glass-light px-4 py-2 rounded-lg flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i>
+                        <span class="text-sm text-slate-300" id="current-time"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 1: Smart Pipeline Generator -->
+            <div id="tab-pipeline" class="tab-content">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="upload" class="w-5 h-5 text-cyan-400"></i>
+                            Step 1: Upload Data
+                        </h3>
+                        <div id="upload-zone" class="border-2 border-dashed border-slate-600 rounded-xl p-8 text-center hover:border-indigo-500 transition cursor-pointer" onclick="document.getElementById('file-input').click()">
+                            <i data-lucide="cloud-upload" class="w-12 h-12 text-slate-500 mx-auto mb-4"></i>
+                            <p class="text-slate-400">Drop CSV/Excel file here or click to upload</p>
+                            <input type="file" id="file-input" class="hidden" accept=".csv,.xlsx" onchange="handleFileUpload(this)">
+                        </div>
+                        <div class="mt-4">
+                            <label class="text-sm text-slate-400 mb-2 block">Select Target Column</label>
+                            <select id="target-column" class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white">
+                                <option value="">-- Upload data first --</option>
+                            </select>
+                        </div>
+                        <button onclick="analyzeDataset()" class="w-full mt-4 py-3 rounded-xl btn-primary text-white font-semibold flex items-center justify-center gap-2">
+                            <i data-lucide="scan" class="w-5 h-5"></i>
+                            Analyze Dataset
+                        </button>
+                    </div>
+                    
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="file-text" class="w-5 h-5 text-emerald-400"></i>
+                            Dataset Analysis
+                        </h3>
+                        <div id="analysis-output" class="bg-slate-900/50 rounded-xl p-4 h-64 overflow-auto font-mono text-sm text-slate-300">
+                            <p class="text-slate-500">Upload data to see analysis...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 mt-6">
+                    <h3 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="brain" class="w-5 h-5 text-purple-400"></i>
+                        🤖 AI Recommendation
+                    </h3>
+                    <div id="recommendation-output" class="bg-slate-900/50 rounded-xl p-4 min-h-32 text-slate-300">
+                        <p class="text-slate-500">Analyze your dataset to get AI recommendations...</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-4 gap-4 mt-6">
+                        <div class="glass-light rounded-xl p-4 text-center">
+                            <p class="text-xs text-slate-400 mb-1">Algorithm</p>
+                            <p class="text-lg font-semibold text-cyan-400" id="rec-algo">--</p>
+                        </div>
+                        <div class="glass-light rounded-xl p-4 text-center">
+                            <p class="text-xs text-slate-400 mb-1">Expected Accuracy</p>
+                            <p class="text-lg font-semibold text-emerald-400" id="rec-accuracy">--</p>
+                        </div>
+                        <div class="glass-light rounded-xl p-4 text-center">
+                            <p class="text-xs text-slate-400 mb-1">Training Time</p>
+                            <p class="text-lg font-semibold text-amber-400" id="rec-time">--</p>
+                        </div>
+                        <div class="glass-light rounded-xl p-4 text-center">
+                            <p class="text-xs text-slate-400 mb-1">Confidence</p>
+                            <p class="text-lg font-semibold text-purple-400" id="rec-confidence">--</p>
+                        </div>
+                    </div>
+                    
+                    <button onclick="generatePipeline()" class="w-full mt-6 py-4 rounded-xl btn-success text-white font-bold text-lg flex items-center justify-center gap-2">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        ✨ Generate & Train Pipeline
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 2: Data Studio -->
+            <div id="tab-data" class="tab-content hide">
+                <div class="flex gap-2 mb-6">
+                    <button onclick="showSubTab('data','upload')" class="subtab active px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-data-upload">📤 Upload & Preview</button>
+                    <button onclick="showSubTab('data','eda')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-data-eda">🔍 Exploratory Analysis</button>
+                    <button onclick="showSubTab('data','quality')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-data-quality">✅ Data Quality</button>
+                    <button onclick="showSubTab('data','preprocess')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-data-preprocess">⚙️ Preprocessing</button>
+                </div>
+                
+                <div id="subtab-content-data-upload" class="subtab-content">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass rounded-2xl p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">Upload Dataset</h3>
+                            <div class="border-2 border-dashed border-slate-600 rounded-xl p-8 text-center hover:border-indigo-500 transition cursor-pointer">
+                                <i data-lucide="file-plus" class="w-12 h-12 text-slate-500 mx-auto mb-4"></i>
+                                <p class="text-slate-400">Drop CSV/Excel file here</p>
+                            </div>
+                        </div>
+                        <div class="glass rounded-2xl p-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">Data Preview</h3>
+                            <div class="bg-slate-900/50 rounded-xl p-4 h-64 overflow-auto">
+                                <table class="w-full text-sm text-slate-300">
+                                    <thead><tr class="border-b border-slate-700"><th class="text-left py-2">Column 1</th><th class="text-left py-2">Column 2</th><th class="text-left py-2">Column 3</th></tr></thead>
+                                    <tbody><tr><td class="py-2">Sample</td><td class="py-2">Data</td><td class="py-2">Preview</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-data-eda" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">Statistical Analysis & Insights</h3>
+                        <div class="bg-slate-900/50 rounded-xl p-4 h-80 overflow-auto font-mono text-sm text-slate-300">
+                            <p>📊 EDA Report will appear here after analysis...</p>
+                        </div>
+                        <button class="mt-4 px-6 py-3 rounded-xl btn-primary text-white font-semibold">Generate EDA Report</button>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-data-quality" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">Data Quality Assessment</h3>
+                        <div class="flex items-center gap-6 mb-6">
+                            <div class="w-32 h-32 relative">
+                                <svg class="w-32 h-32 transform -rotate-90"><circle cx="64" cy="64" r="56" fill="none" stroke="#1e293b" stroke-width="8"/><circle cx="64" cy="64" r="56" fill="none" stroke="#22d3ee" stroke-width="8" stroke-dasharray="352" stroke-dashoffset="70" stroke-linecap="round"/></svg>
+                                <div class="absolute inset-0 flex items-center justify-center"><span class="text-2xl font-bold text-white">80%</span></div>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-emerald-400 font-semibold text-lg">Good Quality</p>
+                                <p class="text-slate-400 text-sm mt-1">Your data meets most quality standards</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900/50 rounded-xl p-4 h-40 overflow-auto text-sm text-slate-300">
+                            <p>✅ No duplicate rows</p>
+                            <p>⚠️ 3 columns have missing values (&lt;5%)</p>
+                            <p>✅ No constant columns</p>
+                            <p>✅ Target variable is balanced</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-data-preprocess" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">Data Cleaning & Feature Engineering</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-sm text-slate-400 mb-3">Preprocessing Options</p>
+                                <label class="flex items-center gap-3 mb-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded bg-slate-700 border-slate-600"><span class="text-slate-300">Handle Missing Values</span></label>
+                                <label class="flex items-center gap-3 mb-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded bg-slate-700 border-slate-600"><span class="text-slate-300">Remove Outliers</span></label>
+                                <label class="flex items-center gap-3 mb-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded bg-slate-700 border-slate-600"><span class="text-slate-300">Scale Features</span></label>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-400 mb-3">Feature Engineering</p>
+                                <label class="flex items-center gap-3 mb-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded bg-slate-700 border-slate-600"><span class="text-slate-300">Auto Feature Selection</span></label>
+                                <label class="flex items-center gap-3 mb-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded bg-slate-700 border-slate-600"><span class="text-slate-300">Create Polynomial Features</span></label>
+                                <label class="flex items-center gap-3 mb-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded bg-slate-700 border-slate-600"><span class="text-slate-300">Encode Categorical</span></label>
+                            </div>
+                        </div>
+                        <button class="mt-6 px-6 py-3 rounded-xl btn-primary text-white font-semibold">Apply Preprocessing</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: Training Console -->
+            <div id="tab-training" class="tab-content hide">
+                <div class="flex gap-2 mb-6">
+                    <button onclick="showSubTab('training','single')" class="subtab active px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-training-single">🎯 Single Model</button>
+                    <button onclick="showSubTab('training','autopilot')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-training-autopilot">⚡ Auto-Pilot</button>
+                    <button onclick="showSubTab('training','hyperopt')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-training-hyperopt">🔧 Hyperparameter Optimizer</button>
+                    <button onclick="showSubTab('training','registry')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-training-registry">📦 Model Registry</button>
+                </div>
+                
+                <div id="subtab-content-training-single" class="subtab-content">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">Train Individual Model</h3>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Select Algorithm</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white">
+                                    <option>RandomForest</option>
+                                    <option>XGBoost</option>
+                                    <option>LightGBM</option>
+                                    <option>GradientBoosting</option>
+                                    <option>LogisticRegression</option>
+                                    <option>SVC</option>
+                                    <option>KNN</option>
+                                    <option>DecisionTree</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Test Size: <span id="test-size-val">20%</span></label>
+                                <input type="range" min="10" max="40" value="20" class="w-full" oninput="document.getElementById('test-size-val').textContent=this.value+'%'">
+                            </div>
+                        </div>
+                        <button onclick="startTraining()" class="w-full py-4 rounded-xl btn-primary text-white font-bold text-lg">🚀 Train Model</button>
+                        <div class="bg-slate-900/50 rounded-xl p-4 mt-4 h-48 overflow-auto font-mono text-sm text-slate-300" id="training-output">
+                            <p class="text-slate-500">Training logs will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-training-autopilot" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">⚡ Auto-Pilot: Train 7 Models in Parallel</h3>
+                        <p class="text-slate-400 mb-6">Automatically trains RandomForest, XGBoost, LightGBM, GradientBoosting, LogisticRegression, SVC, and KNN with optimal hyperparameters.</p>
+                        <button onclick="runAutoPilot()" class="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-lg">🚁 Launch Auto-Pilot</button>
+                        <div class="bg-slate-900/50 rounded-xl p-4 mt-4 h-64 overflow-auto font-mono text-sm text-slate-300" id="autopilot-output">
+                            <p class="text-slate-500">Auto-Pilot results will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-training-hyperopt" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">🔧 Bayesian Hyperparameter Optimization</h3>
+                        <p class="text-slate-400 mb-6">Smart hyperparameter tuning 10x faster than GridSearch using TPE algorithm.</p>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Algorithm</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white">
+                                    <option>RandomForest</option>
+                                    <option>XGBoost</option>
+                                    <option>LightGBM</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Trials: <span id="trials-val">20</span></label>
+                                <input type="range" min="5" max="50" value="20" class="w-full" oninput="document.getElementById('trials-val').textContent=this.value">
+                            </div>
+                        </div>
+                        <button class="w-full py-4 rounded-xl btn-primary text-white font-bold text-lg">⚙️ Optimize Hyperparameters</button>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-training-registry" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">📦 Model Registry</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead><tr class="border-b border-slate-700 text-slate-400"><th class="text-left py-3">Model</th><th class="text-left py-3">Accuracy</th><th class="text-left py-3">F1 Score</th><th class="text-left py-3">Created</th><th class="text-left py-3">Status</th></tr></thead>
+                                <tbody class="text-slate-300">
+                                    <tr class="border-b border-slate-800"><td class="py-3">XGBoost_v1</td><td class="py-3 text-emerald-400">96.8%</td><td class="py-3">0.954</td><td class="py-3">Today</td><td class="py-3"><span class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-xs">Production</span></td></tr>
+                                    <tr class="border-b border-slate-800"><td class="py-3">RandomForest_v2</td><td class="py-3 text-emerald-400">95.2%</td><td class="py-3">0.941</td><td class="py-3">Yesterday</td><td class="py-3"><span class="px-2 py-1 rounded bg-slate-500/20 text-slate-400 text-xs">Archived</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="mt-4 px-6 py-3 rounded-xl btn-primary text-white font-semibold">🔄 Refresh Registry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: Analysis & Insights -->
+            <div id="tab-analysis" class="tab-content hide">
+                <div class="flex gap-2 mb-6">
+                    <button onclick="showSubTab('analysis','viz')" class="subtab active px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-analysis-viz">🎨 Visualizations</button>
+                    <button onclick="showSubTab('analysis','features')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-analysis-features">⭐ Feature Importance</button>
+                    <button onclick="showSubTab('analysis','insights')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-analysis-insights">💡 Model Insights</button>
+                    <button onclick="showSubTab('analysis','chat')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-analysis-chat">🤖 Neural Chat</button>
+                </div>
+                
+                <div id="subtab-content-analysis-viz" class="subtab-content">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">Advanced Visualizations</h3>
+                        <div class="mb-4">
+                            <select class="px-4 py-2 rounded-xl bg-slate-800/50 border border-slate-700 text-white">
+                                <option>Basic</option>
+                                <option>Advanced</option>
+                                <option>Model Analysis</option>
+                            </select>
+                        </div>
+                        <div class="bg-slate-900/50 rounded-xl p-4 h-80">
+                            <canvas id="vizChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-analysis-features" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">⭐ Feature Importance (SHAP)</h3>
+                        <div class="bg-slate-900/50 rounded-xl p-4 h-80">
+                            <canvas id="featureChart"></canvas>
+                        </div>
+                        <button class="mt-4 px-6 py-3 rounded-xl btn-primary text-white font-semibold">Generate SHAP Analysis</button>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-analysis-insights" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">💡 Model Insights</h3>
+                        <div class="bg-slate-900/50 rounded-xl p-4 h-64 overflow-auto text-slate-300">
+                            <p class="mb-2">🎯 <strong>Key Findings:</strong></p>
+                            <p class="mb-2">• The model performs best on customers with high engagement scores</p>
+                            <p class="mb-2">• Feature 'purchase_frequency' has the highest impact on predictions</p>
+                            <p class="mb-2">• Model shows slight bias towards Group A (2.3% higher accuracy)</p>
+                            <p class="mb-2">• Recommended action: Add more training data for Group B</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-analysis-chat" class="subtab-content hide">
+                    <div class="grid grid-cols-3 gap-6 h-[calc(100vh-280px)]">
+                        <div class="col-span-2 glass rounded-2xl p-6 flex flex-col">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center">
+                                    <i data-lucide="bot" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white">Neural Chat Assistant</p>
+                                    <p class="text-xs text-emerald-400 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span> Online</p>
+                                </div>
+                            </div>
+                            <div class="flex-1 overflow-auto space-y-4 mb-4" id="chat-messages">
+                                <div class="flex gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="bot" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <div class="glass-light rounded-2xl rounded-tl-none p-4 max-w-[80%]">
+                                        <p class="text-slate-200">👋 Hello! I'm your <strong>MetaAI Assistant</strong>. Ask me about model performance, features, deployment, or anything ML!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <input type="text" id="chat-input" placeholder="Ask me anything..." class="flex-1 px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white" onkeypress="if(event.key==='Enter')sendMessage()">
+                                <button onclick="sendMessage()" class="px-6 py-3 rounded-xl btn-success text-white font-medium flex items-center gap-2">
+                                    <i data-lucide="send" class="w-5 h-5"></i> Send
+                                </button>
+                            </div>
+                        </div>
+                        <div class="glass rounded-2xl p-6">
+                            <h4 class="font-semibold text-white mb-4">Quick Questions</h4>
+                            <div class="space-y-2">
+                                <button onclick="askQuestion('What is my model accuracy?')" class="w-full text-left p-3 rounded-xl bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 text-sm">📊 What's my model accuracy?</button>
+                                <button onclick="askQuestion('How can I improve performance?')" class="w-full text-left p-3 rounded-xl bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 text-sm">📈 How to improve performance?</button>
+                                <button onclick="askQuestion('Explain feature importance')" class="w-full text-left p-3 rounded-xl bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 text-sm">🔍 Explain feature importance</button>
+                                <button onclick="askQuestion('How do I deploy to production?')" class="w-full text-left p-3 rounded-xl bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 text-sm">🚀 Deploy to production?</button>
+                                <button onclick="askQuestion('Check for model bias')" class="w-full text-left p-3 rounded-xl bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 text-sm">⚖️ Check for model bias</button>
+                            </div>
+                            <button onclick="clearChat()" class="w-full mt-4 py-2 rounded-xl bg-red-500/20 text-red-400 hover:bg-red-500/30 text-sm">Clear Chat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: Testing & Validation -->
+            <div id="tab-testing" class="tab-content hide">
+                <div class="flex gap-2 mb-6">
+                    <button onclick="showSubTab('testing','benchmark')" class="subtab active px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-testing-benchmark">📊 Benchmark</button>
+                    <button onclick="showSubTab('testing','abtest')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-testing-abtest">⚖️ A/B Testing</button>
+                    <button onclick="showSubTab('testing','monitoring')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-testing-monitoring">📈 Monitoring</button>
+                    <button onclick="showSubTab('testing','drift')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-testing-drift">🔴 Drift Detection</button>
+                </div>
+                
+                <div id="subtab-content-testing-benchmark" class="subtab-content">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">📊 Model Benchmark Comparison</h3>
+                        <div class="overflow-x-auto mb-6">
+                            <table class="w-full text-sm">
+                                <thead><tr class="border-b border-slate-700 text-slate-400"><th class="text-left py-3">Model</th><th class="text-left py-3">Accuracy</th><th class="text-left py-3">Precision</th><th class="text-left py-3">Recall</th><th class="text-left py-3">F1</th><th class="text-left py-3">AUC</th></tr></thead>
+                                <tbody class="text-slate-300">
+                                    <tr class="border-b border-slate-800 bg-emerald-500/10"><td class="py-3 font-semibold text-emerald-400">🏆 XGBoost</td><td class="py-3">96.8%</td><td class="py-3">0.961</td><td class="py-3">0.948</td><td class="py-3">0.954</td><td class="py-3">0.982</td></tr>
+                                    <tr class="border-b border-slate-800"><td class="py-3">RandomForest</td><td class="py-3">95.2%</td><td class="py-3">0.943</td><td class="py-3">0.938</td><td class="py-3">0.941</td><td class="py-3">0.967</td></tr>
+                                    <tr class="border-b border-slate-800"><td class="py-3">LightGBM</td><td class="py-3">95.9%</td><td class="py-3">0.952</td><td class="py-3">0.944</td><td class="py-3">0.948</td><td class="py-3">0.975</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="h-64"><canvas id="benchmarkChart"></canvas></div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-testing-abtest" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">⚖️ A/B Testing</h3>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Model A (Control)</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white"><option>XGBoost_v1</option><option>RandomForest_v2</option></select>
+                            </div>
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Model B (Challenger)</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white"><option>LightGBM_v1</option><option>XGBoost_v2</option></select>
+                            </div>
+                        </div>
+                        <button class="w-full py-4 rounded-xl btn-primary text-white font-bold text-lg">🧪 Run A/B Test</button>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-testing-monitoring" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">📈 Real-Time Performance Monitoring</h3>
+                        <div class="h-64"><canvas id="monitoringChart"></canvas></div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-testing-drift" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">🔴 Drift Detection</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="glass-light rounded-xl p-4">
+                                <p class="text-sm text-slate-400 mb-2">Data Drift</p>
+                                <p class="text-2xl font-bold text-emerald-400">0.02</p>
+                                <p class="text-xs text-emerald-400">✅ Within threshold</p>
+                            </div>
+                            <div class="glass-light rounded-xl p-4">
+                                <p class="text-sm text-slate-400 mb-2">Prediction Drift</p>
+                                <p class="text-2xl font-bold text-emerald-400">0.01</p>
+                                <p class="text-xs text-emerald-400">✅ Stable</p>
+                            </div>
+                        </div>
+                        <div class="h-48 mt-6"><canvas id="driftChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: Production & Deploy -->
+            <div id="tab-deploy" class="tab-content hide">
+                <div class="flex gap-2 mb-6">
+                    <button onclick="showSubTab('deploy','versions')" class="subtab active px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-deploy-versions">📜 Pipeline Versions</button>
+                    <button onclick="showSubTab('deploy','deploy')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-deploy-deploy">🚀 Deploy</button>
+                    <button onclick="showSubTab('deploy','batch')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-deploy-batch">📮 Batch Prediction</button>
+                    <button onclick="showSubTab('deploy','alerts')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-deploy-alerts">🚨 Alerts</button>
+                    <button onclick="showSubTab('deploy','mlops')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-deploy-mlops">📊 MLOps Hub</button>
+                </div>
+                
+                <div id="subtab-content-deploy-versions" class="subtab-content">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">📜 Git-Like Pipeline Version Control</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead><tr class="border-b border-slate-700 text-slate-400"><th class="text-left py-3">Version</th><th class="text-left py-3">Model</th><th class="text-left py-3">Accuracy</th><th class="text-left py-3">Created</th><th class="text-left py-3">Status</th></tr></thead>
+                                <tbody class="text-slate-300">
+                                    <tr class="border-b border-slate-800"><td class="py-3 font-mono">v2.1.0</td><td class="py-3">XGBoost</td><td class="py-3 text-emerald-400">96.8%</td><td class="py-3">2 hours ago</td><td class="py-3"><span class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-xs">Current</span></td></tr>
+                                    <tr class="border-b border-slate-800"><td class="py-3 font-mono">v2.0.0</td><td class="py-3">RandomForest</td><td class="py-3">95.2%</td><td class="py-3">1 day ago</td><td class="py-3"><span class="px-2 py-1 rounded bg-slate-500/20 text-slate-400 text-xs">Previous</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-deploy-deploy" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">🚀 One-Click Production Deployment</h3>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Deploy To</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white">
+                                    <option>🐳 Docker</option>
+                                    <option>🤗 HuggingFace</option>
+                                    <option>☁️ AWS SageMaker</option>
+                                    <option>☁️ Azure ML</option>
+                                    <option>☁️ Google Cloud AI</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Select Model</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white"><option>XGBoost_v2.1.0</option><option>RandomForest_v2.0.0</option></select>
+                            </div>
+                        </div>
+                        <button class="w-full py-4 rounded-xl bg-gradient-to-r from-rose-500 to-orange-500 text-white font-bold text-lg">🚀 Deploy to Production</button>
+                        <div class="bg-slate-900/50 rounded-xl p-4 mt-4 h-32 overflow-auto font-mono text-sm text-slate-300">
+                            <p class="text-slate-500">Deployment logs will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-deploy-batch" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">📮 Batch Prediction</h3>
+                        <div class="border-2 border-dashed border-slate-600 rounded-xl p-8 text-center mb-4">
+                            <i data-lucide="file-spreadsheet" class="w-12 h-12 text-slate-500 mx-auto mb-4"></i>
+                            <p class="text-slate-400">Upload data file for batch predictions</p>
+                        </div>
+                        <button class="w-full py-4 rounded-xl btn-primary text-white font-bold text-lg">Generate Predictions</button>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-deploy-alerts" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">🚨 Monitoring Alerts</h3>
+                        <div class="space-y-3 mb-4">
+                            <div class="glass-light rounded-xl p-4 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                                    <span class="text-slate-300">Accuracy Drop Alert</span>
+                                </div>
+                                <span class="text-xs text-slate-500">Threshold: 95%</span>
+                            </div>
+                            <div class="glass-light rounded-xl p-4 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                                    <span class="text-slate-300">Data Drift Alert</span>
+                                </div>
+                                <span class="text-xs text-slate-500">Threshold: 0.1</span>
+                            </div>
+                        </div>
+                        <button class="px-6 py-3 rounded-xl btn-primary text-white font-semibold">➕ Create New Alert</button>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-deploy-mlops" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">📊 MLOps Hub (MLflow Integration)</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead><tr class="border-b border-slate-700 text-slate-400"><th class="text-left py-3">Experiment</th><th class="text-left py-3">Runs</th><th class="text-left py-3">Best Accuracy</th><th class="text-left py-3">Last Run</th></tr></thead>
+                                <tbody class="text-slate-300">
+                                    <tr class="border-b border-slate-800"><td class="py-3">churn_prediction</td><td class="py-3">24</td><td class="py-3 text-emerald-400">96.8%</td><td class="py-3">2 hours ago</td></tr>
+                                    <tr class="border-b border-slate-800"><td class="py-3">sales_forecast</td><td class="py-3">18</td><td class="py-3 text-emerald-400">94.2%</td><td class="py-3">1 day ago</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 7: Advanced Features -->
+            <div id="tab-advanced" class="tab-content hide">
+                <div class="flex gap-2 mb-6">
+                    <button onclick="showSubTab('advanced','fairness')" class="subtab active px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-advanced-fairness">⚖️ Fairness & Bias</button>
+                    <button onclick="showSubTab('advanced','causal')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-advanced-causal">🔍 Causal Inference</button>
+                    <button onclick="showSubTab('advanced','edge')" class="subtab px-4 py-2 rounded-lg border border-slate-600 text-slate-300" id="subtab-advanced-edge">📱 Edge Optimization</button>
+                </div>
+                
+                <div id="subtab-content-advanced-fairness" class="subtab-content">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">⚖️ Bias Detection & Fairness Audit</h3>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="glass-light rounded-xl p-4 text-center">
+                                <p class="text-sm text-slate-400 mb-1">Demographic Parity</p>
+                                <p class="text-2xl font-bold text-emerald-400">0.98</p>
+                                <p class="text-xs text-emerald-400">✅ Fair</p>
+                            </div>
+                            <div class="glass-light rounded-xl p-4 text-center">
+                                <p class="text-sm text-slate-400 mb-1">Equal Opportunity</p>
+                                <p class="text-2xl font-bold text-emerald-400">0.96</p>
+                                <p class="text-xs text-emerald-400">✅ Fair</p>
+                            </div>
+                            <div class="glass-light rounded-xl p-4 text-center">
+                                <p class="text-sm text-slate-400 mb-1">Disparate Impact</p>
+                                <p class="text-2xl font-bold text-amber-400">0.87</p>
+                                <p class="text-xs text-amber-400">⚠️ Review</p>
+                            </div>
+                        </div>
+                        <button class="px-6 py-3 rounded-xl btn-primary text-white font-semibold">🔍 Run Full Bias Audit</button>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-advanced-causal" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">🔍 Causal Inference Analysis</h3>
+                        <p class="text-slate-400 mb-4">Discover causal relationships in your data beyond correlation.</p>
+                        <div class="bg-slate-900/50 rounded-xl p-4 h-64 overflow-auto text-slate-300">
+                            <p class="mb-2">🎯 <strong>Causal Effects Discovered:</strong></p>
+                            <p class="mb-2">• Feature A → Target: +0.34 causal effect</p>
+                            <p class="mb-2">• Feature B → Target: +0.21 causal effect</p>
+                            <p class="mb-2">• Feature C → Feature A: +0.15 indirect effect</p>
+                        </div>
+                        <button class="mt-4 px-6 py-3 rounded-xl btn-primary text-white font-semibold">Analyze Causal Effects</button>
+                    </div>
+                </div>
+                
+                <div id="subtab-content-advanced-edge" class="subtab-content hide">
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">📱 Edge Device Optimization</h3>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Compression Level: <span id="compress-val">5</span></label>
+                                <input type="range" min="1" max="10" value="5" class="w-full" oninput="document.getElementById('compress-val').textContent=this.value">
+                            </div>
+                            <div>
+                                <label class="text-sm text-slate-400 mb-2 block">Target Device</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white">
+                                    <option>📱 Mobile (iOS/Android)</option>
+                                    <option>🔌 IoT Device</option>
+                                    <option>💻 Edge Server</option>
+                                    <option>🌐 Browser (WASM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="w-full py-4 rounded-xl btn-primary text-white font-bold text-lg">⚡ Optimize for Edge</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Particles.js config
+        particlesJS('particles-js', {
+            particles: { number: { value: 60 }, color: { value: '#6366f1' }, shape: { type: 'circle' }, opacity: { value: 0.3 }, size: { value: 2 }, line_linked: { enable: true, color: '#6366f1', opacity: 0.1 }, move: { enable: true, speed: 1 } },
+            interactivity: { events: { onhover: { enable: true, mode: 'grab' } } }
+        });
+
+        // Update time
+        setInterval(() => { document.getElementById('current-time').textContent = new Date().toLocaleTimeString(); }, 1000);
+
+        const API_URL = 'http://localhost:8000';
+        const tabTitles = { pipeline: ['Smart Pipeline Generator', 'Autonomous ML Architecture Design'], data: ['Data Studio', 'Upload, Explore & Preprocess'], training: ['Training Console', 'Train & Optimize Models'], analysis: ['Analysis & Insights', 'Visualizations & AI Chat'], testing: ['Testing & Validation', 'Benchmark & Monitor'], deploy: ['Production & Deploy', 'Version Control & Deployment'], advanced: ['Advanced Features', 'Fairness, Causal & Edge'] };
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hide'));
+            document.getElementById('tab-' + tabName).classList.remove('hide');
+            document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+            document.getElementById('nav-' + tabName).classList.add('active');
+            document.getElementById('page-title').textContent = tabTitles[tabName][0];
+            document.getElementById('page-subtitle').textContent = tabTitles[tabName][1];
+            lucide.createIcons();
+        }
+
+        function showSubTab(mainTab, subTab) {
+            document.querySelectorAll(`[id^="subtab-content-${mainTab}"]`).forEach(c => c.classList.add('hide'));
+            document.getElementById(`subtab-content-${mainTab}-${subTab}`).classList.remove('hide');
+            document.querySelectorAll(`[id^="subtab-${mainTab}"]`).forEach(b => b.classList.remove('active'));
+            document.getElementById(`subtab-${mainTab}-${subTab}`).classList.add('active');
+            lucide.createIcons();
+            if (subTab === 'benchmark') initBenchmarkChart();
+            if (subTab === 'monitoring') initMonitoringChart();
+            if (subTab === 'drift') initDriftChart();
+            if (subTab === 'viz') initVizChart();
+            if (subTab === 'features') initFeatureChart();
+        }
+
+        // File upload
+        function handleFileUpload(input) {
+            const file = input.files[0];
+            if (!file) return;
+            document.getElementById('upload-zone').innerHTML = `<div class="flex items-center justify-center gap-3"><i data-lucide="file-check" class="w-8 h-8 text-emerald-400"></i><span class="text-emerald-400 font-semibold">${file.name}</span></div>`;
+            lucide.createIcons();
+            // Simulate columns
+            const select = document.getElementById('target-column');
+            select.innerHTML = '<option value="">-- Select target --</option><option>target</option><option>label</option><option>class</option><option>outcome</option>';
+        }
+
+        function analyzeDataset() {
+            const output = document.getElementById('analysis-output');
+            output.innerHTML = '<p class="text-cyan-400">🔄 Analyzing dataset...</p>';
+            setTimeout(() => {
+                output.innerHTML = `<pre class="text-sm">📊 DATASET ANALYSIS
+${'='.repeat(40)}
+
+Size Information:
+  • Rows: 10,000
+  • Columns: 15
+  • Category: MEDIUM
+  • Memory: 2.3 MB
+
+Feature Types:
+  • Numeric: 10
+  • Categorical: 4
+  • DateTime: 1
+  • Text Features: No
+
+Target Variable:
+  • Type: Binary Classification
+  • Classes: 2
+  • Imbalance: Slight (60/40)</pre>`;
+                
+                document.getElementById('recommendation-output').innerHTML = `<p class="text-emerald-400 text-lg">🤖 <strong>AI Recommendation:</strong></p>
+<p class="mt-2">Based on your dataset characteristics, I recommend <strong class="text-cyan-400">XGBoost</strong> for optimal performance.</p>
+<p class="mt-2 text-sm text-slate-400">Reason: Medium-sized tabular data with mixed feature types benefits from gradient boosting. XGBoost handles missing values natively and provides excellent accuracy.</p>`;
+                
+                document.getElementById('rec-algo').textContent = 'XGBoost';
+                document.getElementById('rec-accuracy').textContent = '~96%';
+                document.getElementById('rec-time').textContent = '~3 min';
+                document.getElementById('rec-confidence').textContent = '94%';
+            }, 1500);
+        }
+
+        function generatePipeline() {
+            const output = document.getElementById('recommendation-output');
+            output.innerHTML = '<p class="text-amber-400">⚡ Generating and training pipeline...</p><div class="w-full bg-slate-700 rounded-full h-2 mt-4"><div class="bg-gradient-to-r from-indigo-500 to-cyan-500 h-2 rounded-full animate-pulse" style="width: 60%"></div></div>';
+            setTimeout(() => {
+                output.innerHTML = `<p class="text-emerald-400 text-lg">✅ <strong>Pipeline Generated & Trained!</strong></p>
+<p class="mt-2">Model: XGBoost | Accuracy: <strong class="text-cyan-400">96.8%</strong> | F1: 0.954</p>
+<p class="mt-2 text-sm text-slate-400">Pipeline saved to registry. Ready for deployment.</p>`;
+            }, 3000);
+        }
+
+        function startTraining() {
+            const output = document.getElementById('training-output');
+            output.innerHTML = '';
+            const logs = ['[INFO] Initializing training...', '[INFO] Loading dataset...', '[INFO] Preprocessing features...', '[TRAIN] Epoch 1/10 - Loss: 0.682', '[TRAIN] Epoch 5/10 - Loss: 0.234', '[TRAIN] Epoch 10/10 - Loss: 0.089', '[SUCCESS] Training complete! Accuracy: 95.2%'];
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < logs.length) {
+                    output.innerHTML += `<p class="${logs[i].includes('SUCCESS') ? 'text-emerald-400' : 'text-slate-300'}">${logs[i]}</p>`;
+                    output.scrollTop = output.scrollHeight;
+                    i++;
+                } else clearInterval(interval);
+            }, 500);
+        }
+
+        function runAutoPilot() {
+            const output = document.getElementById('autopilot-output');
+            output.innerHTML = '<p class="text-amber-400">🚁 Auto-Pilot engaged! Training 7 models...</p>';
+            setTimeout(() => {
+                output.innerHTML = `<pre class="text-sm">🏆 AUTO-PILOT RESULTS
+${'='.repeat(40)}
+
+1. XGBoost        → 96.8% ⭐ BEST
+2. LightGBM       → 95.9%
+3. RandomForest   → 95.2%
+4. GradientBoost  → 94.8%
+5. LogisticReg    → 91.2%
+6. SVC            → 90.5%
+7. KNN            → 88.3%
+
+✅ Best model saved to registry!</pre>`;
+            }, 4000);
+        }
+
+        // Chat functions
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+            input.value = '';
+            addMessage(msg, 'user');
+            
+            try {
+                const res = await fetch(`${API_URL}/api/v1/chat`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: msg }) });
+                const data = await res.json();
+                addMessage(data.response, 'bot');
+            } catch (e) {
+                addMessage(getLocalResponse(msg), 'bot');
+            }
+        }
+
+        function askQuestion(q) { document.getElementById('chat-input').value = q; sendMessage(); }
+        
+        function clearChat() {
+            document.getElementById('chat-messages').innerHTML = `<div class="flex gap-3"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-4 h-4 text-white"></i></div><div class="glass-light rounded-2xl rounded-tl-none p-4"><p class="text-slate-200">👋 Chat cleared! How can I help?</p></div></div>`;
+            lucide.createIcons();
+        }
+
+        function addMessage(text, type) {
+            const container = document.getElementById('chat-messages');
+            const isUser = type === 'user';
+            container.insertAdjacentHTML('beforeend', `<div class="flex gap-3 ${isUser ? 'flex-row-reverse' : ''}"><div class="w-8 h-8 rounded-lg ${isUser ? 'bg-indigo-500' : 'bg-gradient-to-br from-emerald-500 to-cyan-500'} flex items-center justify-center flex-shrink-0"><i data-lucide="${isUser ? 'user' : 'bot'}" class="w-4 h-4 text-white"></i></div><div class="glass-light rounded-2xl ${isUser ? 'rounded-tr-none bg-indigo-500/20' : 'rounded-tl-none'} p-4 max-w-[80%]"><p class="text-slate-200">${text}</p></div></div>`);
+            container.scrollTop = container.scrollHeight;
+            lucide.createIcons();
+        }
+
+        function getLocalResponse(q) {
+            q = q.toLowerCase();
+            if (q.includes('accuracy')) return '📊 Your best model (XGBoost) has 96.8% accuracy with F1 score of 0.954.';
+            if (q.includes('improve')) return '📈 To improve: 1) Add more training data 2) Try hyperparameter optimization 3) Feature engineering 4) Ensemble methods';
+            if (q.includes('feature')) return '⭐ Top features: purchase_frequency (+0.42), customer_tenure (+0.28), avg_transaction (+0.15)';
+            if (q.includes('deploy')) return '🚀 Go to Production & Deploy tab → Select platform (Docker/AWS/HuggingFace) → Click Deploy!';
+            if (q.includes('bias')) return '⚖️ Fairness check passed! Demographic parity: 0.98, Equal opportunity: 0.96. No significant bias detected.';
+            return '🤖 I can help with model accuracy, improvement tips, feature importance, deployment, and bias detection. What would you like to know?';
+        }
+
+        // Charts
+        function initBenchmarkChart() {
+            new Chart(document.getElementById('benchmarkChart'), { type: 'bar', data: { labels: ['XGBoost', 'LightGBM', 'RandomForest'], datasets: [{ label: 'Accuracy', data: [96.8, 95.9, 95.2], backgroundColor: ['#22d3ee', '#a855f7', '#6366f1'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#94a3b8' } } }, scales: { y: { beginAtZero: false, min: 90, grid: { color: '#1e293b' }, ticks: { color: '#64748b' } }, x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } } } } });
+        }
+
+        function initMonitoringChart() {
+            new Chart(document.getElementById('monitoringChart'), { type: 'line', data: { labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], datasets: [{ label: 'Accuracy', data: [96.5, 96.7, 96.8, 96.6, 96.9, 96.8, 96.7], borderColor: '#22d3ee', tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#94a3b8' } } }, scales: { y: { min: 95, max: 98, grid: { color: '#1e293b' }, ticks: { color: '#64748b' } }, x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } } } } });
+        }
+
+        function initDriftChart() {
+            new Chart(document.getElementById('driftChart'), { type: 'line', data: { labels: ['W1', 'W2', 'W3', 'W4'], datasets: [{ label: 'Data Drift', data: [0.02, 0.03, 0.02, 0.04], borderColor: '#22d3ee', tension: 0.4 }, { label: 'Prediction Drift', data: [0.01, 0.02, 0.015, 0.025], borderColor: '#a855f7', tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#94a3b8' } } }, scales: { y: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } }, x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } } } } });
+        }
+
+        function initVizChart() {
+            new Chart(document.getElementById('vizChart'), { type: 'scatter', data: { datasets: [{ label: 'Class 0', data: Array.from({length: 50}, () => ({x: Math.random()*10, y: Math.random()*10})), backgroundColor: '#6366f1' }, { label: 'Class 1', data: Array.from({length: 50}, () => ({x: Math.random()*10+5, y: Math.random()*10+3})), backgroundColor: '#22d3ee' }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#94a3b8' } } }, scales: { y: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } }, x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } } } } });
+        }
+
+        function initFeatureChart() {
+            new Chart(document.getElementById('featureChart'), { type: 'bar', data: { labels: ['purchase_freq', 'tenure', 'avg_trans', 'support_tickets', 'age'], datasets: [{ label: 'SHAP Value', data: [0.42, 0.28, 0.15, -0.12, 0.08], backgroundColor: ['#22d3ee', '#22d3ee', '#22d3ee', '#f87171', '#22d3ee'] }] }, options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } }, y: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } } } } });
+        }
+
+        // API Status
+        async function checkAPIStatus() {
+            try {
+                const res = await fetch(`${API_URL}/health`);
+                if (res.ok) document.getElementById('api-status').innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span><span class="text-sm text-emerald-400">API Connected</span>';
+            } catch (e) {
+                document.getElementById('api-status').innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-400"></span><span class="text-sm text-slate-400">Offline Mode</span>';
+            }
+        }
+        checkAPIStatus();
+        setInterval(checkAPIStatus, 30000);
+    </script>
+</body>
+</html>

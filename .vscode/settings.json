@@ -1,0 +1,46 @@
+{
+  "git.ignoreLimitWarning": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    ".pytest_cache": true,
+    ".ruff_cache": true,
+    ".pytest_tmp": true,
+    ".uv-cache": true,
+    "exports": true,
+    "mlruns": true,
+    "logs": true,
+    "catboost_info": true,
+    "memory": true,
+    "models": true,
+    "database": true,
+    "mlflow.db": true,
+    "meta_learner_memory.json": true,
+    "execution_debug.log": true,
+    "git_push.log": true,
+    "git_push_2.log": true,
+    "git_push_final.log": true,
+    "benchmark_results.json": true,
+    ".env": true
+  },
+  "search.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    ".ruff_cache": true,
+    "exports": true,
+    "mlruns": true,
+    "catboost_info": true,
+    ".venv312": true,
+    ".venv": true,
+    "venv": true
+  },
+  "files.watcherExclude": {
+    "**/__pycache__/**": true,
+    "**/.pytest_cache/**": true,
+    ".ruff_cache/**": true,
+    "exports/**": true,
+    "mlruns/**": true,
+    ".venv312/**": true,
+    ".venv/**": true
+  }
+}

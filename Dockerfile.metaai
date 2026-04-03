@@ -1,0 +1,65 @@
+# MetaAI Pro - Enterprise AutoML Platform
+# Multi-stage Docker build for production deployment
+
+FROM python:3.11-slim as base
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create app directory
+WORKDIR /app
+
+# Copy requirements first for better caching
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install additional ML dependencies
+RUN pip install --no-cache-dir \
+    scikit-learn>=1.3.0 \
+    pandas>=2.0.0 \
+    numpy>=1.24.0 \
+    xgboost>=2.0.0 \
+    lightgbm>=4.0.0 \
+    catboost>=1.2 \
+    optuna>=3.4.0 \
+    shap>=0.43.0 \
+    gradio>=4.0.0 \
+    fastapi>=0.104.0 \
+    uvicorn>=0.24.0 \
+    pydantic>=2.0.0 \
+    joblib>=1.3.0 \
+    scipy>=1.11.0 \
+    matplotlib>=3.7.0 \
+    seaborn>=0.12.0 \
+    openai>=1.0.0 \
+    groq>=0.4.0
+
+# Copy application code
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p /app/models /app/api /app/logs /app/data
+
+# Expose ports
+# 7860: Gradio UI
+# 8000: FastAPI Production API
+EXPOSE 7860 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:7860/ || exit 1
+
+# Default command runs Gradio UI
+CMD ["python", "quick_start.py"]

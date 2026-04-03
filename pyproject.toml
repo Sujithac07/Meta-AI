@@ -1,0 +1,26 @@
+[project]
+name = "meta-ai-builder-pp"
+version = "0.0.0"
+requires-python = ">=3.10"
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".venv",
+    ".venv312",
+    ".pytest_cache",
+    ".pytest_tmp",
+    ".ruff_cache",
+    "dashboard_v3.py",
+    "interface/metaai_pro_tabs.py",
+    "interface/gradio_demo.py",
+]
+line-length = 120
+
+[tool.ruff.lint]
+ignore = ["E501"]
+
+# Bandit (also invoked explicitly in CI on a subset of paths for speed)
+[tool.bandit]
+exclude_dirs = [".git", ".venv", ".venv312", "venv", "node_modules", ".pytest_cache", ".ruff_cache", ".pytest_tmp", "exports", "mlruns", "data", "frontend"]
+skips = ["B101"]

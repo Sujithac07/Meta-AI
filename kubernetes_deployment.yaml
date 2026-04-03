@@ -1,0 +1,339 @@
+---
+# AutoML Platform Pro - Kubernetes Deployment
+# Production-grade K8s configuration
+
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: automl-platform
+
+---
+# ConfigMap for application settings
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: automl-config
+  namespace: automl-platform
+data:
+  LOG_LEVEL: "INFO"
+  ENVIRONMENT: "production"
+  API_WORKERS: "4"
+  CACHE_TTL: "3600"
+
+---
+# Secret for sensitive data
+apiVersion: v1
+kind: Secret
+metadata:
+  name: automl-secrets
+  namespace: automl-platform
+type: Opaque
+stringData:
+  DATABASE_URL: "postgresql://user:password@postgres:5432/automl_db"
+  REDIS_URL: "redis://redis:6379"
+  SECRET_KEY: "your-secret-key-change-in-production"
+  JWT_TOKEN: "your-jwt-token"
+
+---
+# Deployment for FastAPI Backend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: automl-backend
+  namespace: automl-platform
+  labels:
+    app: automl-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: automl-backend
+  template:
+    metadata:
+      labels:
+        app: automl-backend
+    spec:
+      containers:
+      - name: backend
+        image: automl-backend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+          name: http
+        env:
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: automl-config
+              key: LOG_LEVEL
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: automl-secrets
+              key: DATABASE_URL
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: automl-secrets
+              key: REDIS_URL
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+# Service for Backend
+apiVersion: v1
+kind: Service
+metadata:
+  name: automl-backend-service
+  namespace: automl-platform
+  labels:
+    app: automl-backend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  selector:
+    app: automl-backend
+
+---
+# Deployment for React Frontend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: automl-frontend
+  namespace: automl-platform
+  labels:
+    app: automl-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: automl-frontend
+  template:
+    metadata:
+      labels:
+        app: automl-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: automl-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          name: http
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+# Service for Frontend
+apiVersion: v1
+kind: Service
+metadata:
+  name: automl-frontend-service
+  namespace: automl-platform
+  labels:
+    app: automl-frontend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: automl-frontend
+
+---
+# Ingress for external access
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: automl-ingress
+  namespace: automl-platform
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - automl.example.com
+    secretName: automl-tls
+  rules:
+  - host: automl.example.com
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: automl-backend-service
+            port:
+              number: 8000
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: automl-frontend-service
+            port:
+              number: 3000
+
+---
+# Horizontal Pod Autoscaler for Backend
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: automl-backend-hpa
+  namespace: automl-platform
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: automl-backend
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+
+---
+# StatefulSet for PostgreSQL
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: automl-postgres
+  namespace: automl-platform
+spec:
+  serviceName: automl-postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      app: automl-postgres
+  template:
+    metadata:
+      labels:
+        app: automl-postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15-alpine
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_USER
+          value: "automl_user"
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: automl-secrets
+              key: DATABASE_URL
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-storage
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
+
+---
+# Service for PostgreSQL
+apiVersion: v1
+kind: Service
+metadata:
+  name: automl-postgres
+  namespace: automl-platform
+spec:
+  selector:
+    app: automl-postgres
+  ports:
+  - port: 5432
+    targetPort: 5432
+  clusterIP: None
+
+---
+# PodDisruptionBudget for high availability
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: automl-backend-pdb
+  namespace: automl-platform
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: automl-backend
+
+---
+# NetworkPolicy for security
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: automl-network-policy
+  namespace: automl-platform
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: automl-platform
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: automl-platform

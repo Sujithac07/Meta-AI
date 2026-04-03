@@ -1,0 +1,7 @@
+.venv
+__pycache__
+.git
+mlruns
+*.pyc
+data/*.csv
+models/

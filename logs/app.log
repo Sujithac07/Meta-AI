@@ -1,0 +1,600 @@
+2026-03-24 22:17:47 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-03-24 22:17:50 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 3.18s)
+2026-03-24 22:17:50 - metaai.app - DEBUG - run_advanced_eda execution time: 3.18s
+2026-03-24 22:18:33 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:18:41 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:21:51 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:21:52 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:21:56 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:34:13 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:34:21 - metaai.app - WARNING - Load model failed: No model selected
+2026-03-24 22:34:24 - metaai.app - DEBUG - Found 0 saved models
+2026-03-24 22:34:24 - metaai.app - DEBUG - Retrieved 0 saved models
+2026-03-24 22:41:14 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-03-24 22:41:15 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 1.31s)
+2026-03-24 22:41:15 - metaai.app - DEBUG - run_advanced_eda execution time: 1.31s
+2026-03-24 22:46:30 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-03-24 22:46:31 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 1.19s)
+2026-03-24 22:46:31 - metaai.app - DEBUG - run_advanced_eda execution time: 1.19s
+2026-03-24 22:47:39 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:48:19 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:48:20 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:48:20 - metaai.app - WARNING - Training validation failed: Select a valid target column.
+2026-03-24 22:51:05 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-03-24 22:51:07 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 1.23s)
+2026-03-24 22:51:07 - metaai.app - DEBUG - run_advanced_eda execution time: 1.23s
+2026-03-24 22:51:43 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-24 22:51:43 - metaai.app - INFO - Pipeline step: Training - Started (Models: 5)
+2026-03-24 22:51:43 - metaai.app - ERROR - Training failed for RandomForest: Training returned None
+NoneType: None
+2026-03-24 22:51:43 - metaai.app - ERROR - Training failed for XGBoost: Training returned None
+NoneType: None
+2026-03-24 22:51:43 - metaai.app - ERROR - Training failed for LogisticRegression: Training returned None
+NoneType: None
+2026-03-24 22:51:43 - metaai.app - ERROR - Training failed for GradientBoosting: Training returned None
+NoneType: None
+2026-03-24 22:51:43 - metaai.app - ERROR - Training failed for DecisionTree: Training returned None
+NoneType: None
+2026-03-24 22:51:43 - metaai.app - INFO - Pipeline step: Training - Failed (No models completed)
+2026-03-24 22:51:46 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-24 22:51:46 - metaai.app - INFO - Pipeline step: Training - Started (Models: 5)
+2026-03-24 22:51:46 - metaai.app - ERROR - Training failed for RandomForest: Training returned None
+NoneType: None
+2026-03-24 22:51:46 - metaai.app - ERROR - Training failed for XGBoost: Training returned None
+NoneType: None
+2026-03-24 22:51:46 - metaai.app - ERROR - Training failed for LogisticRegression: Training returned None
+NoneType: None
+2026-03-24 22:51:46 - metaai.app - ERROR - Training failed for GradientBoosting: Training returned None
+NoneType: None
+2026-03-24 22:51:46 - metaai.app - ERROR - Training failed for DecisionTree: Training returned None
+NoneType: None
+2026-03-24 22:51:46 - metaai.app - INFO - Pipeline step: Training - Failed (No models completed)
+2026-03-24 22:51:52 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-24 22:51:52 - metaai.app - INFO - Pipeline step: Training - Started (Models: 5)
+2026-03-24 22:51:52 - metaai.app - ERROR - Training failed for RandomForest: Training returned None
+NoneType: None
+2026-03-24 22:51:52 - metaai.app - ERROR - Training failed for XGBoost: Training returned None
+NoneType: None
+2026-03-24 22:51:52 - metaai.app - ERROR - Training failed for LogisticRegression: Training returned None
+NoneType: None
+2026-03-24 22:51:52 - metaai.app - ERROR - Training failed for GradientBoosting: Training returned None
+NoneType: None
+2026-03-24 22:51:52 - metaai.app - ERROR - Training failed for DecisionTree: Training returned None
+NoneType: None
+2026-03-24 22:51:52 - metaai.app - INFO - Pipeline step: Training - Failed (No models completed)
+2026-03-24 22:52:00 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-24 22:52:00 - metaai.app - INFO - Pipeline step: Training - Started (Models: 5)
+2026-03-24 22:52:00 - metaai.app - ERROR - Training failed for RandomForest: Training returned None
+NoneType: None
+2026-03-24 22:52:00 - metaai.app - ERROR - Training failed for XGBoost: Training returned None
+NoneType: None
+2026-03-24 22:52:00 - metaai.app - ERROR - Training failed for LogisticRegression: Training returned None
+NoneType: None
+2026-03-24 22:52:00 - metaai.app - ERROR - Training failed for GradientBoosting: Training returned None
+NoneType: None
+2026-03-24 22:52:00 - metaai.app - ERROR - Training failed for DecisionTree: Training returned None
+NoneType: None
+2026-03-24 22:52:00 - metaai.app - INFO - Pipeline step: Training - Failed (No models completed)
+2026-03-24 22:52:14 - metaai.app - DEBUG - Found 0 saved models
+2026-03-24 22:52:14 - metaai.app - DEBUG - Retrieved 0 saved models
+2026-03-24 22:52:16 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-24 22:52:16 - metaai.app - INFO - Pipeline step: Training - Started (Models: 5)
+2026-03-24 22:52:16 - metaai.app - ERROR - Training failed for RandomForest: Training returned None
+NoneType: None
+2026-03-24 22:52:16 - metaai.app - ERROR - Training failed for XGBoost: Training returned None
+NoneType: None
+2026-03-24 22:52:16 - metaai.app - ERROR - Training failed for LogisticRegression: Training returned None
+NoneType: None
+2026-03-24 22:52:16 - metaai.app - ERROR - Training failed for GradientBoosting: Training returned None
+NoneType: None
+2026-03-24 22:52:16 - metaai.app - ERROR - Training failed for DecisionTree: Training returned None
+NoneType: None
+2026-03-24 22:52:16 - metaai.app - INFO - Pipeline step: Training - Failed (No models completed)
+2026-03-24 22:59:24 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-24 22:59:24 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-24 23:01:54 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-24 23:01:54 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-24 23:01:54 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-24 23:01:54 - metaai.app - DEBUG - train_RandomForest execution time: 117.42s
+2026-03-24 23:02:09 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-24 23:02:09 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-24 23:02:09 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-24 23:02:09 - metaai.app - DEBUG - train_LogisticRegression execution time: 12.92s
+2026-03-24 23:02:11 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=15.35s
+2026-03-24 23:02:11 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-25 11:21:35 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-03-25 11:21:36 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 1.33s)
+2026-03-25 11:21:36 - metaai.app - DEBUG - run_advanced_eda execution time: 1.33s
+2026-03-25 11:23:23 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 11:23:23 - metaai.app - INFO - Pipeline step: Training - Started (Models: 4)
+2026-03-25 11:26:04 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 11:26:04 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 11:26:04 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 11:26:04 - metaai.app - DEBUG - train_RandomForest execution time: 127.16s
+2026-03-25 11:26:24 - metaai.app - INFO - Model saved: XGBoost (0.14MB)
+2026-03-25 11:26:24 - metaai.app - INFO - Model 'XGBoost' saved successfully
+2026-03-25 11:26:24 - metaai.app - INFO - Model Performance - XGBoost: Acc=0.9066, F1=0.8784, Precision=0.8774, Recall=0.9066
+2026-03-25 11:26:24 - metaai.app - DEBUG - train_XGBoost execution time: 18.06s
+2026-03-25 11:26:41 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-25 11:26:41 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-25 11:26:41 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-25 11:26:41 - metaai.app - DEBUG - train_LogisticRegression execution time: 16.25s
+2026-03-25 11:27:01 - metaai.app - INFO - Model saved: DecisionTree (0.62MB)
+2026-03-25 11:27:01 - metaai.app - INFO - Model 'DecisionTree' saved successfully
+2026-03-25 11:27:01 - metaai.app - INFO - Model Performance - DecisionTree: Acc=0.8490, F1=0.8536, Precision=0.8585, Recall=0.8490
+2026-03-25 11:27:01 - metaai.app - DEBUG - train_DecisionTree execution time: 18.04s
+2026-03-25 11:27:05 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=23.24s
+2026-03-25 11:27:05 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-25 11:29:43 - metaai.app - DEBUG - Found 4 saved models
+2026-03-25 11:29:43 - metaai.app - DEBUG - Retrieved 4 saved models
+2026-03-25 11:30:03 - metaai.app - DEBUG - Found 4 saved models
+2026-03-25 11:30:03 - metaai.app - DEBUG - Retrieved 4 saved models
+2026-03-25 11:30:05 - metaai.app - INFO - Model loaded: LogisticRegression
+2026-03-25 11:30:13 - metaai.app - INFO - Model loaded: LogisticRegression
+2026-03-25 11:40:24 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 11:40:24 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 11:42:10 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 11:42:10 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 11:42:10 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 11:42:10 - metaai.app - DEBUG - train_RandomForest execution time: 71.42s
+2026-03-25 11:43:12 - metaai.app - INFO - Model saved: GradientBoosting (0.05MB)
+2026-03-25 11:43:12 - metaai.app - INFO - Model 'GradientBoosting' saved successfully
+2026-03-25 11:43:12 - metaai.app - INFO - Model Performance - GradientBoosting: Acc=0.9074, F1=0.8789, Precision=0.8795, Recall=0.9074
+2026-03-25 11:43:12 - metaai.app - DEBUG - train_GradientBoosting execution time: 60.49s
+2026-03-25 11:43:13 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8789, Accuracy=0.9074, Time=63.41s
+2026-03-25 11:43:13 - metaai.app - INFO - Pipeline step: Training - Completed (Best: GradientBoosting)
+2026-03-25 11:47:54 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 11:47:54 - metaai.app - INFO - Pipeline step: Training - Started (Models: 1)
+2026-03-25 11:49:36 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 11:49:36 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 11:49:36 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 11:49:36 - metaai.app - DEBUG - train_RandomForest execution time: 68.07s
+2026-03-25 11:49:37 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8747, Accuracy=0.9017, Time=102.77s
+2026-03-25 11:49:37 - metaai.app - INFO - Pipeline step: Training - Completed (Best: RandomForest)
+2026-03-25 11:51:16 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 11:51:16 - metaai.app - INFO - Pipeline step: Training - Started (Models: 1)
+2026-03-25 11:53:43 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 11:53:43 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 11:53:43 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 11:53:43 - metaai.app - DEBUG - train_RandomForest execution time: 114.42s
+2026-03-25 11:53:48 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8747, Accuracy=0.9017, Time=152.26s
+2026-03-25 11:53:48 - metaai.app - INFO - Pipeline step: Training - Completed (Best: RandomForest)
+2026-03-25 12:00:30 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 12:00:30 - metaai.app - INFO - Pipeline step: Training - Started (Models: 1)
+2026-03-25 12:02:44 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 12:02:44 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 12:02:48 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 12:02:48 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 12:02:52 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 12:02:52 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 12:02:52 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 12:02:52 - metaai.app - DEBUG - train_RandomForest execution time: 108.39s
+2026-03-25 12:02:56 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8747, Accuracy=0.9017, Time=146.03s
+2026-03-25 12:02:56 - metaai.app - INFO - Pipeline step: Training - Completed (Best: RandomForest)
+2026-03-25 12:02:56 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 12:02:56 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 12:03:05 - metaai.app - INFO - Model loaded: RandomForest
+2026-03-25 12:03:30 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-25 12:03:33 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 2.76s
+2026-03-25 12:04:43 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-25 12:12:55 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 12:12:55 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 12:15:16 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 12:15:16 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 12:15:16 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 12:15:16 - metaai.app - DEBUG - train_RandomForest execution time: 107.39s
+2026-03-25 12:16:19 - metaai.app - INFO - Model saved: GradientBoosting (0.05MB)
+2026-03-25 12:16:19 - metaai.app - INFO - Model 'GradientBoosting' saved successfully
+2026-03-25 12:16:19 - metaai.app - INFO - Model Performance - GradientBoosting: Acc=0.9074, F1=0.8789, Precision=0.8795, Recall=0.9074
+2026-03-25 12:16:19 - metaai.app - DEBUG - train_GradientBoosting execution time: 59.44s
+2026-03-25 12:16:22 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8789, Accuracy=0.9074, Time=64.38s
+2026-03-25 12:16:22 - metaai.app - INFO - Pipeline step: Training - Completed (Best: GradientBoosting)
+2026-03-25 12:20:17 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-25 12:20:19 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 1.50s
+2026-03-25 12:20:48 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-25 12:25:54 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 12:25:54 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 12:32:43 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 12:32:43 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 12:39:57 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 12:39:57 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 12:42:17 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 12:42:17 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 12:42:17 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 12:42:17 - metaai.app - DEBUG - train_RandomForest execution time: 106.55s
+2026-03-25 12:43:20 - metaai.app - INFO - Model saved: GradientBoosting (0.05MB)
+2026-03-25 12:43:20 - metaai.app - INFO - Model 'GradientBoosting' saved successfully
+2026-03-25 12:43:20 - metaai.app - INFO - Model Performance - GradientBoosting: Acc=0.9074, F1=0.8789, Precision=0.8795, Recall=0.9074
+2026-03-25 12:43:20 - metaai.app - DEBUG - train_GradientBoosting execution time: 59.46s
+2026-03-25 12:43:23 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8789, Accuracy=0.9074, Time=64.70s
+2026-03-25 12:43:23 - metaai.app - INFO - Pipeline step: Training - Completed (Best: GradientBoosting)
+2026-03-25 12:43:49 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 12:43:49 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 12:43:53 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 12:43:53 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 12:44:03 - metaai.app - INFO - Model loaded: RandomForest
+2026-03-25 12:51:44 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-25 12:51:45 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 1.52s
+2026-03-25 12:51:51 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-25 12:52:00 - metaai.app - DEBUG - predict_RandomForest execution time: 0.09s
+2026-03-25 12:58:01 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-25 12:58:01 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 0.16s
+2026-03-25 13:06:45 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 13:06:45 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 13:09:21 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 13:09:21 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 13:09:21 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 13:09:21 - metaai.app - DEBUG - train_RandomForest execution time: 119.80s
+2026-03-25 13:10:30 - metaai.app - INFO - Model saved: GradientBoosting (0.05MB)
+2026-03-25 13:10:30 - metaai.app - INFO - Model 'GradientBoosting' saved successfully
+2026-03-25 13:10:30 - metaai.app - INFO - Model Performance - GradientBoosting: Acc=0.9074, F1=0.8789, Precision=0.8795, Recall=0.9074
+2026-03-25 13:10:30 - metaai.app - DEBUG - train_GradientBoosting execution time: 65.34s
+2026-03-25 13:10:34 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8789, Accuracy=0.9074, Time=71.57s
+2026-03-25 13:10:34 - metaai.app - INFO - Pipeline step: Training - Completed (Best: GradientBoosting)
+2026-03-25 13:11:54 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 13:11:54 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 13:11:58 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 13:11:58 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 13:12:07 - metaai.app - INFO - Model loaded: RandomForest
+2026-03-25 13:12:33 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 13:12:33 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 13:12:35 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 13:12:35 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 13:12:36 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 13:12:36 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-25 13:12:47 - metaai.app - INFO - Model loaded: RandomForest
+2026-03-25 13:15:55 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 13:15:55 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 13:15:55 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 13:16:23 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 13:16:23 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 13:18:35 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 13:18:35 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 13:18:35 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 13:18:35 - metaai.app - DEBUG - train_RandomForest execution time: 111.92s
+2026-03-25 22:10:20 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 22:10:20 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 22:10:20 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 22:14:54 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 22:14:54 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 22:17:30 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 22:17:30 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 22:17:30 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 22:17:30 - metaai.app - DEBUG - train_RandomForest execution time: 123.65s
+2026-03-25 22:18:37 - metaai.app - INFO - Model saved: GradientBoosting (0.05MB)
+2026-03-25 22:18:37 - metaai.app - INFO - Model 'GradientBoosting' saved successfully
+2026-03-25 22:18:37 - metaai.app - INFO - Model Performance - GradientBoosting: Acc=0.9074, F1=0.8789, Precision=0.8795, Recall=0.9074
+2026-03-25 22:18:37 - metaai.app - DEBUG - train_GradientBoosting execution time: 64.03s
+2026-03-25 22:18:41 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8789, Accuracy=0.9074, Time=69.26s
+2026-03-25 22:18:41 - metaai.app - INFO - Pipeline step: Training - Completed (Best: GradientBoosting)
+2026-03-25 22:21:50 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-25 22:21:52 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 2.47s
+2026-03-25 22:21:57 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-25 22:21:58 - metaai.app - DEBUG - predict_RandomForest execution time: 0.10s
+2026-03-25 22:24:48 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-25 22:47:57 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-25 22:52:13 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-25 23:10:55 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:10:55 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:10:55 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:14:25 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 23:14:25 - metaai.app - INFO - Pipeline step: Training - Started (Models: 1)
+2026-03-25 23:17:16 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 23:17:16 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 23:17:16 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 23:17:16 - metaai.app - DEBUG - train_RandomForest execution time: 134.51s
+2026-03-25 23:17:22 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8747, Accuracy=0.9017, Time=177.16s
+2026-03-25 23:17:22 - metaai.app - INFO - Pipeline step: Training - Completed (Best: RandomForest)
+2026-03-25 23:18:11 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-25 23:18:13 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 2.04s
+2026-03-25 23:18:14 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-25 23:18:16 - metaai.app - DEBUG - predict_RandomForest execution time: 0.07s
+2026-03-25 23:25:21 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:25:21 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:25:21 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:26:38 - metaai.app - WARNING - Load model failed: No model selected
+2026-03-25 23:27:23 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 23:27:23 - metaai.app - INFO - Pipeline step: Training - Started (Models: 1)
+2026-03-25 23:30:04 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 23:30:04 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 23:30:04 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 23:30:04 - metaai.app - DEBUG - train_RandomForest execution time: 124.61s
+2026-03-25 23:30:09 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8747, Accuracy=0.9017, Time=166.49s
+2026-03-25 23:30:09 - metaai.app - INFO - Pipeline step: Training - Completed (Best: RandomForest)
+2026-03-25 23:31:49 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 23:31:49 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 23:33:40 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 23:33:40 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 23:33:40 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 23:33:40 - metaai.app - DEBUG - train_RandomForest execution time: 74.35s
+2026-03-25 23:34:00 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-25 23:34:00 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-25 23:34:00 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-25 23:34:00 - metaai.app - DEBUG - train_LogisticRegression execution time: 18.92s
+2026-03-25 23:34:02 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=21.14s
+2026-03-25 23:34:02 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-25 23:35:19 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-25 23:40:47 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:40:47 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:40:47 - metaai.app - DEBUG - Found 5 saved models
+2026-03-25 23:41:53 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-25 23:41:53 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-25 23:44:22 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-25 23:44:22 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-25 23:44:22 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-25 23:44:22 - metaai.app - DEBUG - train_RandomForest execution time: 115.12s
+2026-03-25 23:44:41 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-25 23:44:41 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-25 23:44:41 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-25 23:44:41 - metaai.app - DEBUG - train_LogisticRegression execution time: 16.93s
+2026-03-25 23:44:45 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=21.20s
+2026-03-25 23:44:45 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-26 11:11:43 - metaai.app - DEBUG - Found 5 saved models
+2026-03-26 11:11:43 - metaai.app - DEBUG - Found 5 saved models
+2026-03-26 11:11:43 - metaai.app - DEBUG - Found 5 saved models
+2026-03-26 11:12:26 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-26 11:12:26 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-26 11:14:52 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-26 11:14:52 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-26 11:14:52 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-26 11:14:52 - metaai.app - DEBUG - train_RandomForest execution time: 115.38s
+2026-03-26 11:15:08 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-26 11:15:08 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-26 11:15:08 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-26 11:15:08 - metaai.app - DEBUG - train_LogisticRegression execution time: 12.16s
+2026-03-26 11:15:10 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=14.34s
+2026-03-26 11:15:10 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-26 11:17:53 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-26 11:17:55 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 2.07s
+2026-03-26 11:17:59 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-26 11:18:00 - metaai.app - DEBUG - predict_RandomForest execution time: 0.03s
+2026-03-26 11:21:49 - metaai.app - DEBUG - Found 5 saved models
+2026-03-26 11:21:49 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-26 11:21:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-26 11:21:57 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-26 11:21:58 - metaai.app - DEBUG - Found 5 saved models
+2026-03-26 11:21:58 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-26 11:22:07 - metaai.app - INFO - Model loaded: RandomForest
+2026-03-27 22:27:12 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 22:27:12 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 22:27:12 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 22:27:13 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 22:27:13 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 22:27:13 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 22:27:13 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 22:27:13 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 22:27:50 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-03-27 22:27:51 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 1.63s)
+2026-03-27 22:27:51 - metaai.app - DEBUG - run_advanced_eda execution time: 1.63s
+2026-03-27 22:31:49 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-27 22:31:49 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-27 22:34:54 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-27 22:34:54 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-27 22:34:54 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-27 22:34:54 - metaai.app - DEBUG - train_RandomForest execution time: 149.49s
+2026-03-27 22:35:17 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-27 22:35:17 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-27 22:35:17 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-27 22:35:17 - metaai.app - DEBUG - train_LogisticRegression execution time: 22.00s
+2026-03-27 22:35:22 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=27.22s
+2026-03-27 22:35:22 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-27 22:55:11 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-27 22:55:14 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 2.79s
+2026-03-27 22:55:17 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-27 22:55:20 - metaai.app - DEBUG - predict_RandomForest execution time: 0.06s
+2026-03-27 22:55:21 - metaai.app - DEBUG - predict_RandomForest execution time: 0.07s
+2026-03-27 22:55:48 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-27 23:07:49 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:07:49 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:07:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:07:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:08:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:08:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:08:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:08:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:08:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:08:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:08:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:08:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:09:50 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-27 23:09:50 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-27 23:17:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:17:34 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-27 23:23:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:23:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:23:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:23:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:23:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:23:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:23:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:23:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:24:42 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-27 23:24:42 - metaai.app - INFO - Pipeline step: Training - Started (Models: 1)
+2026-03-27 23:25:55 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:25:55 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-27 23:25:59 - metaai.app - DEBUG - Found 5 saved models
+2026-03-27 23:25:59 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-27 23:27:17 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-27 23:27:17 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-27 23:27:17 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-27 23:27:17 - metaai.app - DEBUG - train_RandomForest execution time: 121.21s
+2026-03-27 23:27:22 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8747, Accuracy=0.9017, Time=159.68s
+2026-03-27 23:27:22 - metaai.app - INFO - Pipeline step: Training - Completed (Best: RandomForest)
+2026-03-27 23:27:50 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-27 23:27:52 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-27 23:27:53 - metaai.app - DEBUG - predict_RandomForest execution time: 0.08s
+2026-03-27 23:27:53 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 3.36s
+2026-03-27 23:28:15 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-27 23:30:22 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-27 23:34:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:34:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:34:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:34:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:34:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:34:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:34:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:34:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:34:41 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 08:36:34 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-28 08:36:34 - metaai.app - INFO - Pipeline step: Training - Started (Models: 1)
+2026-03-28 08:39:50 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-28 08:39:50 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-28 08:39:50 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-28 08:39:50 - metaai.app - DEBUG - train_RandomForest execution time: 159.36s
+2026-03-28 08:39:55 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8747, Accuracy=0.9017, Time=200.67s
+2026-03-28 08:39:55 - metaai.app - INFO - Pipeline step: Training - Completed (Best: RandomForest)
+2026-03-28 08:40:28 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-28 08:42:55 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-28 08:47:35 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-28 08:47:35 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-28 08:49:09 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-28 08:49:09 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-28 08:49:09 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-28 08:49:09 - metaai.app - DEBUG - train_RandomForest execution time: 64.68s
+2026-03-28 08:49:22 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-28 08:49:22 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-28 08:49:22 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-28 08:49:22 - metaai.app - DEBUG - train_LogisticRegression execution time: 13.03s
+2026-03-28 08:49:23 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=13.81s
+2026-03-28 08:49:23 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-28 08:53:09 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-28 11:31:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:31:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:31:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:31:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:31:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:31:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:31:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:31:50 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:45:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:45:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:45:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:45:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:45:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:45:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:45:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:45:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:46:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:46:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:46:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:46:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:46:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:46:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:46:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:46:34 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:50:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:50:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:50:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:50:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:50:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:50:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:50:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:50:57 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:52:30 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:52:30 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:52:30 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:52:30 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:52:30 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:52:30 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:52:30 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 11:52:30 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:53:01 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:53:02 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:53:02 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:53:02 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:53:02 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:53:02 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:53:02 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:53:02 - metaai.app - DEBUG - Found 5 saved models
+2026-03-28 12:54:03 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-03-28 12:54:06 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 3.25s)
+2026-03-28 12:54:06 - metaai.app - DEBUG - run_advanced_eda execution time: 3.25s
+2026-03-28 12:54:50 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-28 12:54:50 - metaai.app - INFO - Pipeline step: Training - Started (Models: 3)
+2026-03-28 12:57:41 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-28 12:57:41 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-28 12:57:41 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-28 12:57:41 - metaai.app - DEBUG - train_RandomForest execution time: 135.92s
+2026-03-28 12:58:01 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-28 12:58:01 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-28 12:58:01 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-28 12:58:01 - metaai.app - DEBUG - train_LogisticRegression execution time: 18.76s
+2026-03-28 12:58:19 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-28 12:58:21 - metaai.app - INFO - Model saved: DecisionTree (0.62MB)
+2026-03-28 12:58:21 - metaai.app - INFO - Model 'DecisionTree' saved successfully
+2026-03-28 12:58:21 - metaai.app - INFO - Model Performance - DecisionTree: Acc=0.8490, F1=0.8536, Precision=0.8585, Recall=0.8490
+2026-03-28 12:58:21 - metaai.app - DEBUG - train_DecisionTree execution time: 18.15s
+2026-03-28 12:58:22 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 3.10s
+2026-03-28 12:58:23 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-28 12:58:23 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=21.94s
+2026-03-28 12:58:23 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-28 12:58:29 - metaai.app - DEBUG - predict_RandomForest execution time: 0.03s
+2026-03-28 12:58:52 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-28 13:02:38 - metaai.app - INFO - Pipeline step: AIInsights - Started
+2026-03-30 21:49:40 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 21:49:40 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 21:49:40 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 21:49:40 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 21:49:40 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 21:49:40 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 21:49:40 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 21:49:40 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 21:51:35 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-03-30 21:51:37 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 1.50s)
+2026-03-30 21:51:37 - metaai.app - DEBUG - run_advanced_eda execution time: 1.50s
+2026-03-30 21:52:04 - metaai.app - INFO - Training started: Multiple Models, Dataset shape: (253680, 22)
+2026-03-30 21:52:04 - metaai.app - INFO - Pipeline step: Training - Started (Models: 2)
+2026-03-30 21:54:51 - metaai.app - INFO - Model saved: RandomForest (64.64MB)
+2026-03-30 21:54:51 - metaai.app - INFO - Model 'RandomForest' saved successfully
+2026-03-30 21:54:51 - metaai.app - INFO - Model Performance - RandomForest: Acc=0.9017, F1=0.8747, Precision=0.8671, Recall=0.9017
+2026-03-30 21:54:51 - metaai.app - DEBUG - train_RandomForest execution time: 132.47s
+2026-03-30 21:55:10 - metaai.app - INFO - Model saved: LogisticRegression (0.00MB)
+2026-03-30 21:55:10 - metaai.app - INFO - Model 'LogisticRegression' saved successfully
+2026-03-30 21:55:10 - metaai.app - INFO - Model Performance - LogisticRegression: Acc=0.9071, F1=0.8802, Precision=0.8792, Recall=0.9071
+2026-03-30 21:55:10 - metaai.app - DEBUG - train_LogisticRegression execution time: 17.62s
+2026-03-30 21:55:14 - metaai.app - INFO - Training completed: Multiple Models, F1=0.8802, Accuracy=0.9071, Time=22.32s
+2026-03-30 21:55:14 - metaai.app - INFO - Pipeline step: Training - Completed (Best: LogisticRegression)
+2026-03-30 22:00:46 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 22:00:46 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-30 22:00:48 - metaai.app - DEBUG - Found 5 saved models
+2026-03-30 22:00:48 - metaai.app - DEBUG - Retrieved 5 saved models
+2026-03-30 22:00:52 - metaai.app - INFO - Model loaded: LogisticRegression
+2026-03-30 22:01:00 - metaai.app - INFO - Pipeline step: ModelExplanation - Started (Model: RandomForest, Method: SHAP)
+2026-03-30 22:01:03 - metaai.app - DEBUG - explain_model_shap_RandomForest execution time: 2.42s
+2026-03-30 22:01:04 - metaai.app - INFO - Pipeline step: paste_sample - Success (Pasted sample with 21 features)
+2026-03-30 22:01:04 - metaai.app - DEBUG - predict_RandomForest execution time: 0.07s
+2026-03-31 11:41:28 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:41:28 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:41:28 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:41:28 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:41:28 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:41:28 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:41:28 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:41:28 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:47:06 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:47:06 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:47:06 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:47:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:47:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:47:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:47:07 - metaai.app - DEBUG - Found 5 saved models
+2026-03-31 11:47:07 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:33:47 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:33:47 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:33:47 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:33:47 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:33:47 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:33:47 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:33:47 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:33:47 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 12:35:29 - metaai.app - INFO - Pipeline step: AdvancedEDA - Started
+2026-04-01 12:35:31 - metaai.app - INFO - Pipeline step: AdvancedEDA - Completed (Quality Score: 100, Time: 1.57s)
+2026-04-01 12:35:31 - metaai.app - DEBUG - run_advanced_eda execution time: 1.57s
+2026-04-01 13:56:51 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 13:56:51 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 13:56:51 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 13:56:51 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 13:56:51 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 13:56:51 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 13:56:51 - metaai.app - DEBUG - Found 5 saved models
+2026-04-01 13:56:51 - metaai.app - DEBUG - Found 5 saved models

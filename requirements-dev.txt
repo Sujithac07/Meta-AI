@@ -1,0 +1,4 @@
+# Development and CI (install after requirements.txt)
+pytest>=7.0.0
+ruff>=0.4.0
+bandit>=1.7.0

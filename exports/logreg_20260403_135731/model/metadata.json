@@ -1,0 +1,16 @@
+{
+  "model_name": "logreg",
+  "model_type": "LogisticRegression",
+  "task_type": "classification",
+  "target_column": "target",
+  "feature_columns": [
+    "age",
+    "bmi",
+    "income"
+  ],
+  "feature_count": 3,
+  "accuracy": 0.91,
+  "created_at": "2026-04-03T13:57:31.048566",
+  "preprocessors": [],
+  "version": "1.0.0"
+}

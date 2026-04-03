@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # ── META-AI API ──────────────────────────────────────
+  api:
+    build: .
+    container_name: meta_ai_api
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=${SECRET_KEY:-supersecretkey}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - META_AI_COOKIE=${META_AI_COOKIE}
+    volumes:
+      - ./data:/home/appuser/app/data
+    restart: unless-stopped
+    networks:
+      - meta_ai_network
+
+  # ── Streamlit Frontend ───────────────────────────────
+  frontend:
+    build: .
+    container_name: meta_ai_frontend
+    command: streamlit run frontend/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000/api/v1
+    depends_on:
+      - api
+    restart: unless-stopped
+    networks:
+      - meta_ai_network
+
+networks:
+  meta_ai_network:
+    driver: bridge
+
+volumes:
+  data:

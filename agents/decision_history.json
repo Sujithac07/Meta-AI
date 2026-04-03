@@ -1,0 +1,171 @@
+[
+    {
+        "timestamp": "2026-02-27T23:30:27.259882",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-27T23:35:49.930857",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-27T23:45:22.476260",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-27T23:49:16.846493",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-27T23:55:37.590148",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-28T00:01:25.260294",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-28T00:11:48.866161",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-28T00:13:43.500429",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-28T00:19:32.685172",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-28T00:25:17.015417",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-28T00:28:48.164566",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-28T00:36:48.587436",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    },
+    {
+        "timestamp": "2026-02-28T00:43:16.141706",
+        "dataset": "Current Upload",
+        "selected_model": "RandomForest",
+        "performance": {
+            "accuracy": 0.9017462945443078,
+            "precision": 0.8671097177721792,
+            "recall": 0.9017462945443078,
+            "f1": 0.8747074503671688,
+            "roc_auc": 0.8175297902932025
+        },
+        "logic": "Strategy logic error ( [WinError 1114] A dynamic link library (DLL) initialization routine failed. Error loading \"C:\\Users\\sujit\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies. ), falling back."
+    }
+]

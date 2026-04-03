@@ -139,7 +139,15 @@ git remote -v
 
 ### 7. Push your branch to GitHub
 
-If your branch is **`master`**:
+**This project (Meta AI):** If your machine has a branch named **`github-main`** that tracks **`github/main`**, use that for GitHub — **do not** run `git push -u github master`. The old **`master`** branch can still contain commits with embedded Hugging Face tokens; GitHub will **block** the push with **GH013 Push Protection** (“Push cannot contain secrets”). Stay on `github-main`, commit, then `git push`.
+
+Check your branch:
+
+```powershell
+git branch --show-current
+```
+
+If your branch is **`master`** (generic instructions only — **not** this repo’s safe branch if `github-main` exists):
 
 ```powershell
 git push -u github master
@@ -182,10 +190,10 @@ After a successful push, refresh your repository page on GitHub; your files shou
 ```powershell
 git add -A
 git commit -m "Short description"
-git push github master
+git push
 ```
 
-(Use `main` instead of `master` if that is your branch name.)
+(On **`github-main`** with upstream set, `git push` updates **`main`** on GitHub. If you still use a branch literally named `master` and it is safe to push, use `git push github master` instead.)
 
 ---
 
@@ -197,13 +205,14 @@ git push github master
 | `failed to push` / `rejected` | Someone else pushed first, or the remote has commits you do not have. For a solo first-time push to an **empty** repo, ensure the GitHub repo was created **without** a README. If needed, ask for help with `git pull --rebase` before pushing. |
 | `Authentication failed` | Use a **Personal Access Token** instead of your GitHub password for HTTPS. |
 | `GH007` / private email | Use GitHub **noreply** email in `git config user.email` (see note under Part D step 5). |
+| **`GH013` / Push cannot contain secrets** (Hugging Face token in old commits) | You pushed an old branch (often **`master`**) whose **history** still has tokens in files like `DEPLOY_HF_AUTOMATED.bat`. GitHub rejects the whole push. **Fix:** work on **`github-main`**, push with `git push` (to `main`), and **do not** push `master` to GitHub. Removing the secret from current files is not enough — the old commits must not be uploaded. |
 | Huge upload / timeout | Large files may be blocked; keep `exports/`, `data/`, and venv folders **ignored** (see `.gitignore`). |
 
 ---
 
 ## Your project’s note (extra remote)
 
-This repository may already have a remote (for example **Hugging Face**). Adding **`github`** as in Part D keeps that remote and **adds** GitHub. You push to GitHub with `git push github master` and to the other host with its remote name (for example `git push space master`) if you still use it.
+This repository may already have a remote (for example **Hugging Face**). Adding **`github`** as in Part D keeps that remote and **adds** GitHub. Push **GitHub** from **`github-main`** (`git push`), not from legacy **`master`** (see Part 7). Push to Hugging Face with its remote name (for example `git push space …`) if you still use it.
 
 ---
 

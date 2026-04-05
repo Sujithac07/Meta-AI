@@ -15,6 +15,16 @@ Automated machine learning for **tabular data**: upload CSVs, pick a target colu
 
 **Note:** This file lives at the **repository root** as **`README.md`**. The short doc list only is **`docs/README.md`**.
 
+### Canonical app (same as `docs/PRD.md`)
+
+| Piece | Role |
+|--------|------|
+| **`quick_start.py`** | **Primary launcher** — picks a free port (from 7860), imports `build_dashboard` from **`dashboard_v3.py`**, starts Gradio. |
+| **`dashboard_v3.py`** | **Current main UI** — `MetaAI Pro v3.0` tabs (ingestion → training → export, etc.). |
+| **`RUN_GRADIO_APP.bat`** | Windows helper that runs `quick_start.py`. |
+
+Other entry points (`interface/gradio_demo.py`, `app.py`, Docker `CMD` to `gradio_demo.py`) are **alternates or older layouts**; use them only if you know you need that path. **`docs/PRD.md`** and **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** describe the supported primary flow.
+
 ---
 
 ## 📋 Table of Contents

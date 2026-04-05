@@ -88,7 +88,7 @@ The product **succeeds** for a release when:
 
 1. A user can **upload** data, **select** a target, **train** at least one path to completion, and **obtain** metrics and artifacts without undocumented manual patching.
 2. **Export** produces an installable bundle that can serve predictions under documented assumptions (`tests/test_export_hardening.py` guards regression where applicable).
-3. **Documentation** in the root `README.md` matches the actual entrypoints and tab structure.
+3. **Documentation** in the root `README.md` matches the actual entrypoints and tab structure (see its **Canonical app** subsection at the top; older sections may still mention alternate launchers).
 4. **Security posture** is honest: secrets are environmental; no silent exfiltration of user data is a design goal.
 
 ---

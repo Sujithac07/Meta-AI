@@ -11,6 +11,7 @@ Automated machine learning for **tabular data**: upload CSVs, pick a target colu
 | **[docs/HOW_TO_DEPLOY.md](docs/HOW_TO_DEPLOY.md)** | Docker, server, Compose, inference export |
 | **[docs/GITHUB_SETUP.md](docs/GITHUB_SETUP.md)** | Git / GitHub (use branch **`github-main`** for pushes) |
 | **[docs/README.md](docs/README.md)** | Index of all docs |
+| **[legacy/README.md](legacy/README.md)** | Old one-off launchers and scripts moved out of the repo root (optional to browse) |
 
 **Note:** This file lives at the **repository root** as **`README.md`**. The short doc list only is **`docs/README.md`**.
 

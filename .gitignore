@@ -31,3 +31,9 @@ benchmark_results.json
 .ruff_cache/
 .pytest_tmp/
 .uv-cache/
+
+# Local MLflow SQLite (if created at repo root)
+/mlflow.db
+
+# Optional: keep archived root junk only on your machine (uncomment to stop tracking legacy scratch)
+# /legacy/root-scratch/

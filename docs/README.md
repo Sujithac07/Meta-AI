@@ -7,6 +7,7 @@
 | [PRD.md](PRD.md) | Product scope and non-goals (constitution-style) |
 | [README.md](../README.md) | **Project root README** (long-form): features, quick start, links to this `docs/` folder — file path is **`README.md`** at repo root, not inside `docs/` |
 | [GITHUB_SETUP.md](GITHUB_SETUP.md) | **Put the project on GitHub** (install Git, create repo, commit, push) — beginner steps |
+| [../legacy/README.md](../legacy/README.md) | **Archived root clutter** (old `.bat` / scratch `.py` / notes) — not needed to run the app |
 
 **Quality:** Install dev tools with `pip install -r requirements-dev.txt` (or `make setup-dev`). CI runs pytest, Ruff, Bandit (scoped paths), and a `Dockerfile.prod` build on push to `main`, `master`, or `develop`.
 

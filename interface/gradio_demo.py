@@ -797,7 +797,7 @@ def upload_data(file, app_state):
         cols = app_state.df.columns.tolist()
         
         log_data_loading(app_state.df.shape[0], app_state.df.shape[1], file.name)
-        log_execution_time("upload_file", time.time() - upload_start)
+        log_execution_time(f"upload_file", time.time() - upload_start)
         
         preview = f"**Dataset loaded:** {len(app_state.df):,} rows x {len(cols)} cols\n\n"
         preview += f"**Columns:** {', '.join(cols[:10])}{'...' if len(cols) > 10 else ''}"
@@ -1501,8 +1501,8 @@ def run_full_pipeline(model_choices, automl, n_trials, app_state):
                 
                 explainability_plot = shap_fig if shap_fig else lime_fig
                 training_log += f"✅ **Explainability generated for {best_model_name}**\n"
-                training_log += "- SHAP summary plot (global feature importance)\n"
-                training_log += "- LIME explanation (local instance-level)\n\n"
+                training_log += f"- SHAP summary plot (global feature importance)\n"
+                training_log += f"- LIME explanation (local instance-level)\n\n"
         except Exception as e:
             training_log += f"⚠️ **Explainability generation skipped:** {str(e)[:60]}\n\n"
             explainability_plot = None
@@ -1522,7 +1522,7 @@ def run_full_pipeline(model_choices, automl, n_trials, app_state):
         training_log += f"- **Total Models Trained:** {len(app_state.models)}\n"
         training_log += f"- **Best Model:** {best_model_name}\n"
         training_log += f"- **Best F1 Score:** {best_f1:.4f}\n"
-        training_log += "- **Status:** Ready for deployment\n"
+        training_log += f"- **Status:** Ready for deployment\n"
         
         return training_log, leaderboard_chart, explainability_plot, insights
         
@@ -2019,7 +2019,7 @@ Be concise, technical, and actionable. No emojis."""
                 )
                 return response.choices[0].message.content
                 
-            except Exception:
+            except Exception as e:
                 pass  # Fall back to rule-based
         
         # Rule-based analysis (no API key or API call failed)
@@ -2845,7 +2845,7 @@ def run_drift_detection(reference_file, current_file, app_state):
 
 {f"⚠️ **High drift detected ({drift_score:.0%})!** Consider retraining your model with recent data." if drift_score > 0.3 else "✅ **Data is stable.** No immediate action required."}
 
-{"🔄 **Self-Healing Trigger:** Automatic model retraining is recommended." if drift_score > 0.5 else ""}
+{f"🔄 **Self-Healing Trigger:** Automatic model retraining is recommended." if drift_score > 0.5 else ""}
 
 ---
 
@@ -3689,7 +3689,7 @@ def build_app():
                             cols = state.df.columns.tolist()
                             return gr.update(choices=cols, value=t if t and t in cols else (cols[0] if cols else None))
                         return gr.update(choices=[], value=None)
-                    except Exception:
+                    except Exception as e:
                         return gr.update(choices=[], value=None)
 
                 target_col.change(sync_target, [target_col, app_state], [tr_target])
@@ -3752,7 +3752,7 @@ def build_app():
                     # If it's a valid value, use it; otherwise set to None
                     try:
                         return gr.update(value=m if m else None)
-                    except Exception:
+                    except Exception as e:
                         return gr.update(value=None)
 
                 model_picker.change(sync_model, [model_picker], [exp_model])
@@ -4154,7 +4154,7 @@ def build_app():
                             empty_fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)")
                             return empty_fig, empty_fig, importance_fig, pred_fig, empty_fig, empty_fig
                         
-                    except Exception:
+                    except Exception as e:
                         empty_fig = go.Figure()
                         empty_fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)")
                         return empty_fig, empty_fig, empty_fig, empty_fig, empty_fig, empty_fig

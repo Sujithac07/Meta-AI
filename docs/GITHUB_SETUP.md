@@ -81,7 +81,7 @@ git status
 git remote -v
 ```
 
-You might see **no** remote, or a remote named **`origin`**, or (in this project) another name such as **`space`** pointing to Hugging Face. That is fine: you can **add GitHub as another remote** without deleting the old one.
+You might see **no** remote, or a remote named **`origin`**, or **`github`**. You can **add** another remote if you use more than one host (for example GitHub plus a private server).
 
 ### 4. Stage the files you want on GitHub
 
@@ -139,7 +139,7 @@ git remote -v
 
 ### 7. Push your branch to GitHub
 
-**This project (Meta AI):** If your machine has a branch named **`github-main`** that tracks **`github/main`**, use that for GitHub — **do not** run `git push -u github master`. The old **`master`** branch can still contain commits with embedded Hugging Face tokens; GitHub will **block** the push with **GH013 Push Protection** (“Push cannot contain secrets”). Stay on `github-main`, commit, then `git push`.
+**This project (Meta AI):** If your machine has a branch named **`github-main`** that tracks **`github/main`**, use that for GitHub — **do not** run `git push -u github master`. The old **`master`** branch can still contain commits with embedded API tokens; GitHub will **block** the push with **GH013 Push Protection** (“Push cannot contain secrets”). Stay on `github-main`, commit, then `git push`.
 
 Check your branch:
 
@@ -205,14 +205,14 @@ git push
 | `failed to push` / `rejected` | Someone else pushed first, or the remote has commits you do not have. For a solo first-time push to an **empty** repo, ensure the GitHub repo was created **without** a README. If needed, ask for help with `git pull --rebase` before pushing. |
 | `Authentication failed` | Use a **Personal Access Token** instead of your GitHub password for HTTPS. |
 | `GH007` / private email | Use GitHub **noreply** email in `git config user.email` (see note under Part D step 5). |
-| **`GH013` / Push cannot contain secrets** (Hugging Face token in old commits) | You pushed an old branch (often **`master`**) whose **history** still has tokens in files like `DEPLOY_HF_AUTOMATED.bat`. GitHub rejects the whole push. **Fix:** work on **`github-main`**, push with `git push` (to `main`), and **do not** push `master` to GitHub. Removing the secret from current files is not enough — the old commits must not be uploaded. |
+| **`GH013` / Push cannot contain secrets** (tokens in old commits) | You pushed an old branch (often **`master`**) whose **history** still has API tokens in legacy scripts. GitHub rejects the whole push. **Fix:** work on **`github-main`**, push with `git push` (to `main`), and **do not** push `master` to GitHub. Removing the secret from current files is not enough — the old commits must not be uploaded. |
 | Huge upload / timeout | Large files may be blocked; keep `exports/`, `data/`, and venv folders **ignored** (see `.gitignore`). |
 
 ---
 
-## Your project’s note (extra remote)
+## Your project’s note (GitHub only)
 
-This repository may already have a remote (for example **Hugging Face**). Adding **`github`** as in Part D keeps that remote and **adds** GitHub. Push **GitHub** from **`github-main`** (`git push`), not from legacy **`master`** (see Part 7). Push to Hugging Face with its remote name (for example `git push space …`) if you still use it.
+Use the **`github`** remote and branch **`github-main`** as in Part D. Push with `git push` (to **`main`**), not from legacy **`master`** (see Part 7), so GitHub does not receive old commits that may contain secrets.
 
 ---
 

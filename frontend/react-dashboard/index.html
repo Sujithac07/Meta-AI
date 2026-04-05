@@ -588,7 +588,7 @@
                                 <label class="text-sm text-slate-400 mb-2 block">Deploy To</label>
                                 <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white">
                                     <option>🐳 Docker</option>
-                                    <option>🤗 HuggingFace</option>
+                                    <option>☸️ Kubernetes</option>
                                     <option>☁️ AWS SageMaker</option>
                                     <option>☁️ Azure ML</option>
                                     <option>☁️ Google Cloud AI</option>
@@ -1199,7 +1199,7 @@ Improvement: +1.4% over default</pre>`;
             }
             if (q.includes('improve')) return '📈 Tips to improve model: 1) More quality data 2) Feature engineering 3) Hyperparameter tuning 4) Try different algorithms in Auto-Pilot mode';
             if (q.includes('feature')) return '⭐ Upload a dataset and train a model first. Then I can show you real SHAP feature importance values.';
-            if (q.includes('deploy')) return '🚀 Go to Production & Deploy tab → Select platform (Docker/AWS/HuggingFace) → Click Deploy! But first, train a model in Training Console.';
+            if (q.includes('deploy')) return '🚀 Go to Production & Deploy tab → Select platform (Docker / Kubernetes / AWS) → Click Deploy! But first, train a model in Training Console.';
             if (q.includes('bias') || q.includes('fair')) return '⚖️ Upload data and train a model first, then go to Advanced → Fairness & Bias to run a real audit.';
             if (q.includes('help') || q.includes('what can')) return '🤖 I can help you: 1) Understand your data 2) Train ML models 3) Interpret results 4) Deploy to production. Start by uploading a dataset!';
             return '🤖 I\'m your ML assistant! Start by uploading a dataset in Data Studio. Then train a model in Training Console. Ask me anything about ML!';

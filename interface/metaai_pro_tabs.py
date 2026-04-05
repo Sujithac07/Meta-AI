@@ -276,7 +276,7 @@ class MetaAIProInterface:
                         with gr.Row():
                             deploy_platform = gr.Dropdown(
                                 label="Deploy To",
-                                choices=['Docker', 'HuggingFace', 'AWS', 'Azure', 'GCP']
+                                choices=['Docker', 'Kubernetes', 'AWS', 'Azure', 'GCP']
                             )
                             model_select = gr.Dropdown(label="Select Model", choices=[])
                         deploy_output = gr.Textbox(label="Deployment Status", lines=8)

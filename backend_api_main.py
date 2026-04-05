@@ -4,28 +4,31 @@ Enterprise-grade REST API for ML pipeline orchestration
 FAANG-Level Features: Agentic Auditing, Self-Healing, XAI, MLOps
 """
 
-from fastapi import FastAPI, HTTPException, WebSocket, BackgroundTasks, UploadFile, File, Form
+from fastapi import FastAPI, HTTPException, WebSocket, Depends, BackgroundTasks, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 import logging
 from datetime import datetime
+import json
+import os
 import pandas as pd
 import numpy as np
 import io
 import uuid
 
 # ML imports for REAL training
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, confusion_matrix, roc_auc_score
 from sklearn.impute import KNNImputer
 from scipy import stats  # For drift detection (Kolmogorov-Smirnov test)
 
@@ -530,7 +533,7 @@ async def ai_auditor(model_id: str = ""):
     health_score = (accuracy * 0.4 + f1 * 0.3 + recall * 0.3) if f1 and recall else accuracy
     
     # Confusion matrix analysis
-    cm_analysis = """True Positives: Correctly identified heart disease cases
+    cm_analysis = f"""True Positives: Correctly identified heart disease cases
 False Negatives: CRITICAL - Missed heart disease cases (minimize this!)
 True Negatives: Correctly identified healthy patients  
 False Positives: False alarms (less critical than FN)"""
@@ -700,7 +703,7 @@ async def generate_shap_analysis(model_id: str = ""):
         elif hasattr(model, 'coef_'):
             raw_coef = np.abs(model.coef_).flatten()
             importances = raw_coef[:len(features)] if len(raw_coef) >= len(features) else list(raw_coef) + [0.01] * (len(features) - len(raw_coef))
-    except Exception:
+    except Exception as e:
         pass
     
     # Fallback to fixed realistic values (NOT random)
@@ -1283,8 +1286,8 @@ async def chat(msg: ChatMessage):
     
     # Check actual current session state
     has_models = bool(app_state.get("models", {}))
-    _has_data = app_state.get("current_dataset") is not None
-
+    has_data = app_state.get("current_dataset") is not None
+    
     # For questions about current state, use our honest responses
     q = user_message.lower()
     if any(w in q for w in ["accuracy", "performance", "score", "model", "result", "metric", "trained"]):
@@ -1313,7 +1316,7 @@ I only report metrics from models trained in THIS session."""
                     model_info.append(f"- **{data.get('algorithm', name)}**: Accuracy: {acc_str}, F1: {f1}")
             
             if model_info:
-                response = "📊 **Your Trained Models (REAL Results):**\n\n" + "\n".join(model_info)
+                response = f"📊 **Your Trained Models (REAL Results):**\n\n" + "\n".join(model_info)
                 response += f"\n\n_Total models trained: {len(model_info)}_"
             else:
                 response = "Models training in progress..."
@@ -1351,7 +1354,7 @@ def generate_ai_response(question: str, context: Optional[str] = None) -> str:
                     f1 = m.get('f1_score', m.get('f1', 'N/A'))
                     model_info.append(f"- **{name}**: Accuracy {acc_str}, F1: {f1}")
             if model_info:
-                return "📊 **Trained Models:**\n\n" + "\n".join(model_info)
+                return f"📊 **Trained Models:**\n\n" + "\n".join(model_info)
         return """📊 **No models trained yet!**
 
 To get model performance metrics:
@@ -1418,7 +1421,7 @@ This analyzes if your model treats different groups fairly. Run a bias audit aft
 
     elif any(w in q for w in ["data", "upload", "dataset"]):
         if has_data:
-            return """📁 **Dataset Loaded!**
+            return f"""📁 **Dataset Loaded!**
 
 Current dataset is ready. Explore it:
 1. **EDA** - Exploratory Data Analysis

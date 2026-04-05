@@ -547,7 +547,7 @@
                                 <label class="text-sm text-slate-400 mb-2 block">Deploy To</label>
                                 <select class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white">
                                     <option>🐳 Docker</option>
-                                    <option>🤗 HuggingFace</option>
+                                    <option>☸️ Kubernetes</option>
                                     <option>☁️ AWS SageMaker</option>
                                     <option>☁️ Azure ML</option>
                                     <option>☁️ Google Cloud AI</option>
@@ -850,7 +850,7 @@ ${'='.repeat(40)}
             if (q.includes('accuracy')) return '📊 Your best model (XGBoost) has 96.8% accuracy with F1 score of 0.954.';
             if (q.includes('improve')) return '📈 To improve: 1) Add more training data 2) Try hyperparameter optimization 3) Feature engineering 4) Ensemble methods';
             if (q.includes('feature')) return '⭐ Top features: purchase_frequency (+0.42), customer_tenure (+0.28), avg_transaction (+0.15)';
-            if (q.includes('deploy')) return '🚀 Go to Production & Deploy tab → Select platform (Docker/AWS/HuggingFace) → Click Deploy!';
+            if (q.includes('deploy')) return '🚀 Go to Production & Deploy tab → Select platform (Docker / Kubernetes / AWS) → Click Deploy!';
             if (q.includes('bias')) return '⚖️ Fairness check passed! Demographic parity: 0.98, Equal opportunity: 0.96. No significant bias detected.';
             return '🤖 I can help with model accuracy, improvement tips, feature importance, deployment, and bias detection. What would you like to know?';
         }

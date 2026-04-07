@@ -19,7 +19,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-from sklearn.preprocessing import StandardScaler
 matplotlib.use('Agg')
 import io
 import base64
@@ -27,19 +26,14 @@ import json
 import re
 from typing import Dict, Any, List, Optional, Tuple
 from datetime import datetime
-from pydantic import BaseModel, Field, validator, ValidationError
-from pydantic import create_model
 
 # Import core modules
-from core.smart_ingestion import SmartIngestionEngine, format_ingestion_report
 from core.forensic_cleaner import ForensicCleaner, format_forensic_report
 from core.auto_feature_engineer import AutoFeatureEngineer, format_feature_report
-from core.elite_trainer import EliteTrainer, format_tournament_report, OPTUNA_AVAILABLE
+from core.elite_trainer import EliteTrainer, format_tournament_report
 from core.black_box_breaker import BlackBoxBreaker, format_xai_report
-from core.deployment_guard import DeploymentGuard, format_drift_report
 from core.agentic_report import agent_report_generator
 from core.production_export import create_production_export
-from core.agent_insight import generate_agent_insight
 
 
 # ==================== STATE MANAGEMENT ====================
@@ -739,7 +733,7 @@ def capture_drift_baseline(df: pd.DataFrame) -> Tuple[str, str]:
         if stats['type'] == 'categorical':
             report += f"- **{col}**: {stats['unique_count']} unique values\n"
     
-    report += f"""
+    report += """
 ---
 **Baseline saved!** This fingerprint will be used to detect data drift in production.
 Export the JSON baseline for deployment monitoring.
@@ -799,9 +793,9 @@ def generate_data_lineage(df: pd.DataFrame, progress=gr.Progress()) -> Tuple[np.
         metrics = [
             f"{rows:,} rows\n{cols} cols",
             f"{semantic_detected} types\ndetected",
-            f"Validation:\nPending",
-            f"Baseline:\nReady",
-            f"Status:\nReady"
+            "Validation:\nPending",
+            "Baseline:\nReady",
+            "Status:\nReady"
         ]
         
         for i, (stage, metric) in enumerate(zip(stages, metrics)):
@@ -1075,7 +1069,7 @@ penalize younger individuals.
             for r in [r for r in bias_results if r['Severity'] == 'WARNING']:
                 report += f"- **{r['Missing Column']}** missing data correlates with **{r['Correlated With']}** (strength: {r['Correlation']}, p<{r['P-value']})\n"
             
-            report += f"""
+            report += """
 
 ### Recommendations
 1. **Investigate**: Why is data missing for specific groups?
@@ -1111,7 +1105,6 @@ def run_bayesian_imputation(df: pd.DataFrame, progress=gr.Progress()) -> Tuple[p
         return None, create_placeholder_image("No data"), "No data uploaded"
     
     try:
-        from sklearn.experimental import enable_iterative_imputer
         from sklearn.impute import IterativeImputer
         from sklearn.ensemble import RandomForestRegressor
         
@@ -1191,7 +1184,7 @@ def run_bayesian_imputation(df: pd.DataFrame, progress=gr.Progress()) -> Tuple[p
         progress(1.0, desc="Imputation complete!")
         
         # Create report
-        report = f"""## Iterative Bayesian Imputation Report
+        report = """## Iterative Bayesian Imputation Report
 
 **Method:** MICE (Multiple Imputation by Chained Equations) with Random Forest
 
@@ -1785,7 +1778,7 @@ def run_dimensionality_reduction(df: pd.DataFrame, target_col: str = None, metho
 - max_iter: 500 (optimization iterations)
 """
         
-        report += f"""
+        report += """
 ### Recommendations
 
 Based on the visualization:
@@ -1900,14 +1893,14 @@ This cluster is characterized by:
             cluster_target = df[cluster_mask][target_col]
             overall_target = df[target_col]
             
-            explanation += f"\n### Target Variable Distribution\n\n"
+            explanation += "\n### Target Variable Distribution\n\n"
             
             if cluster_target.dtype in [np.float64, np.int64]:
                 explanation += f"- **Cluster {target_col} mean:** {cluster_target.mean():.2f}\n"
                 explanation += f"- **Overall {target_col} mean:** {overall_target.mean():.2f}\n"
             else:
                 cluster_dist = cluster_target.value_counts(normalize=True).head(3)
-                explanation += f"**Top values in cluster:**\n"
+                explanation += "**Top values in cluster:**\n"
                 for val, pct in cluster_dist.items():
                     explanation += f"- {val}: {pct*100:.1f}%\n"
         
@@ -2071,7 +2064,7 @@ def run_agentic_feature_creation(df: pd.DataFrame, progress=gr.Progress()) -> Tu
                     'Non-Null Count': df_enhanced[new_col_name].notna().sum(),
                     'Mean': round(df_enhanced[new_col_name].mean(), 4) if df_enhanced[new_col_name].notna().any() else 'N/A'
                 })
-            except Exception as e:
+            except Exception:
                 continue
         
         # Also create statistical interaction features for numeric columns
@@ -2216,8 +2209,6 @@ def run_agentic_feature_creation(df: pd.DataFrame, progress=gr.Progress()) -> Tu
         ax4 = axes[1, 1]
         
         # Calculate mutual information improvement
-        from sklearn.feature_selection import mutual_info_regression, mutual_info_classif
-        from sklearn.preprocessing import LabelEncoder
         
         # Get target variable
         numeric_cols_orig = df.select_dtypes(include=[np.number]).columns.tolist()
@@ -2284,7 +2275,7 @@ def run_agentic_feature_creation(df: pd.DataFrame, progress=gr.Progress()) -> Tu
         else:
             report += "No recognized semantic patterns found in column names.\n"
         
-        report += f"""
+        report += """
 ### Domain-Expert Features Created
 """
         domain_features = [f for f in created_features if not f['Feature Name'].startswith('feat_') or '_div_' not in f['Feature Name']]
@@ -2333,7 +2324,7 @@ def run_recursive_feature_elimination(df: pd.DataFrame, target_col: str = None,
         return df, create_placeholder_image("No target"), "Please select a target column in the Data Ingestion tab first", pd.DataFrame()
     
     try:
-        from sklearn.feature_selection import RFE, RFECV
+        from sklearn.feature_selection import RFE
         from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
         from sklearn.preprocessing import LabelEncoder, StandardScaler
         from sklearn.model_selection import cross_val_score, StratifiedKFold, KFold
@@ -2450,7 +2441,7 @@ def run_recursive_feature_elimination(df: pd.DataFrame, target_col: str = None,
                        [baseline_score, final_score],
                        color=['#3498db', '#27ae60'], alpha=0.8)
         ax3.set_ylabel(metric)
-        ax3.set_title(f'Model Performance: Before vs After RFE', fontweight='bold')
+        ax3.set_title('Model Performance: Before vs After RFE', fontweight='bold')
         ax3.set_ylim(0, max(baseline_score, final_score) * 1.2)
         
         # Add value labels
@@ -2507,7 +2498,7 @@ def run_recursive_feature_elimination(df: pd.DataFrame, target_col: str = None,
         
         eliminated_features = [f['Feature'] for f in feature_ranking if f['Selected'] == 'No']
         if eliminated_features:
-            report += f"""
+            report += """
 ### Eliminated Features (Added Noise)
 """
             for feat in eliminated_features[:10]:
@@ -2630,6 +2621,57 @@ def _prepare_numeric_features(df: pd.DataFrame, target_col: str) -> Tuple[pd.Dat
     X = df[safe_numeric_cols].fillna(df[safe_numeric_cols].median())
     return X, safe_numeric_cols, leakage_map
 
+
+def _safe_mlflow_log_training(
+    model: Any,
+    model_name: str,
+    task_type: str,
+    best_score: float,
+    params: Optional[Dict[str, Any]] = None,
+    experiment_name: str = "Meta-AI-Models",
+    run_name: Optional[str] = None,
+):
+    """
+    Best-effort MLflow logging for dashboard_v3 training flows.
+    Never blocks the training UI if MLflow isn't available.
+    """
+    try:
+        import mlflow  # type: ignore
+
+        # Allow user/CI to override tracking URI
+        tracking_uri = os.getenv("MLFLOW_TRACKING_URI")
+        if tracking_uri:
+            mlflow.set_tracking_uri(tracking_uri)
+        else:
+            # Default to local folder
+            mlflow.set_tracking_uri("sqlite:///./mlflow.db")
+
+        mlflow.set_experiment(experiment_name)
+
+        with mlflow.start_run(run_name=run_name or f"Train_{model_name}"):
+            mlflow.log_param("model_name", model_name)
+            mlflow.log_param("task_type", task_type)
+            mlflow.log_param("model_type", type(model).__name__)
+            mlflow.log_metric("best_score", float(best_score))
+
+            if params:
+                safe_params = {k: v for k, v in params.items() if isinstance(v, (str, int, float, bool))}
+                if safe_params:
+                    mlflow.log_params(safe_params)
+
+            # Best-effort model artifact logging.
+            try:
+                import mlflow.sklearn  # type: ignore
+                mlflow.sklearn.log_model(model, "model")
+            except Exception:
+                # Model logging can fail due to version/serialization mismatch.
+                # Metrics/params above still make MLflow runs useful.
+                pass
+    except Exception:
+        # MLflow is non-critical; ignore any errors.
+        pass
+
+
 def run_normal_training(df: pd.DataFrame, target_col: str = None, progress=gr.Progress()) -> Tuple[np.ndarray, str, pd.DataFrame]:
     """
     Normal Training - Run 5 standard models and pick the best one by accuracy/score.
@@ -2646,7 +2688,6 @@ def run_normal_training(df: pd.DataFrame, target_col: str = None, progress=gr.Pr
         from sklearn.preprocessing import LabelEncoder, StandardScaler
         from sklearn.linear_model import LogisticRegression, Ridge
         from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor, GradientBoostingClassifier, GradientBoostingRegressor
-        from sklearn.svm import SVC, SVR
         from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
         from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
         import time
@@ -2859,6 +2900,14 @@ def run_normal_training(df: pd.DataFrame, target_col: str = None, progress=gr.Pr
         state.model_name = best_model_name
         state.best_score = float(best_score) if best_score is not None else None
         state.leakage_report = leakage_map
+        _safe_mlflow_log_training(
+            model=best_model,
+            model_name=best_model_name or "NormalTrainingModel",
+            task_type=state.task_type,
+            best_score=float(best_score) if best_score is not None else 0.0,
+            params={"training_mode": "normal"},
+            run_name=f"Normal_{best_model_name}",
+        )
         
         return img, report, results_df
         
@@ -3104,7 +3153,7 @@ def run_optuna_training(df: pd.DataFrame, target_col: str = None, n_trials: int 
             for col, reason in list(leakage_map.items())[:10]:
                 report += f"- `{col}`: {reason}\n"
 
-        report += f"""
+        report += """
 
 ### How Optuna Works
 1. **TPE Sampler:** Uses Tree-structured Parzen Estimator to intelligently explore the parameter space
@@ -3126,10 +3175,18 @@ def run_optuna_training(df: pd.DataFrame, target_col: str = None, n_trials: int 
         # Keep `model` and `trained_model` in sync for export/insights tabs.
         state.model = best_model
         state.trained_model = best_model
-        state.model_name = f"Optuna-Optimized RandomForest"
+        state.model_name = "Optuna-Optimized RandomForest"
         state.best_params = best_params
         state.best_score = float(best_score) if best_score is not None else None
         state.leakage_report = leakage_map
+        _safe_mlflow_log_training(
+            model=best_model,
+            model_name=state.model_name or "OptunaModel",
+            task_type=state.task_type,
+            best_score=float(best_score) if best_score is not None else 0.0,
+            params={**({"training_mode": "optuna"}), **(best_params or {})},
+            run_name=f"Optuna_{state.model_name}",
+        )
 
         return img, report, trials_df
         
@@ -3153,7 +3210,7 @@ def run_stacking_ensemble(df: pd.DataFrame, target_col: str = None,
         return create_placeholder_image("No target"), "Please select a target column first", pd.DataFrame()
     
     try:
-        from sklearn.model_selection import cross_val_score, StratifiedKFold, KFold, cross_val_predict
+        from sklearn.model_selection import cross_val_score
         from sklearn.preprocessing import LabelEncoder, StandardScaler
         from sklearn.ensemble import (
             RandomForestClassifier, RandomForestRegressor,
@@ -3162,8 +3219,7 @@ def run_stacking_ensemble(df: pd.DataFrame, target_col: str = None,
             AdaBoostClassifier, AdaBoostRegressor,
             StackingClassifier, StackingRegressor
         )
-        from sklearn.linear_model import LogisticRegression, Ridge, RidgeCV
-        from sklearn.svm import SVC, SVR
+        from sklearn.linear_model import LogisticRegression, RidgeCV
         from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
         import time
         
@@ -3496,6 +3552,14 @@ The ensemble includes:
         state.model_name = "Stacking Ensemble"
         state.best_score = float(stacking_result['Mean Score']) if isinstance(stacking_result['Mean Score'], float) else None
         state.leakage_report = leakage_map
+        _safe_mlflow_log_training(
+            model=stacking_model,
+            model_name=state.model_name,
+            task_type=state.task_type,
+            best_score=float(state.best_score) if state.best_score is not None else 0.0,
+            params={"training_mode": "stacking"},
+            run_name=f"Stacking_{state.model_name}",
+        )
         
         return img, report, all_results_df
         
@@ -3522,7 +3586,7 @@ def run_normal_analysis(df: pd.DataFrame, target_col: str = None,
     
     try:
         from sklearn.metrics import (
-            confusion_matrix, classification_report, accuracy_score,
+            confusion_matrix, accuracy_score,
             precision_score, recall_score, f1_score, roc_auc_score,
             mean_squared_error, mean_absolute_error, r2_score
         )
@@ -4488,7 +4552,7 @@ Be specific, actionable, and quantitative. Reference the actual data statistics 
             try:
                 self.client = openai.OpenAI(api_key=api_key)
                 self.provider = "openai"
-                print(f"[AgenticAuditor] Successfully initialized OpenAI client")
+                print("[AgenticAuditor] Successfully initialized OpenAI client")
             except Exception as e:
                 print(f"[AgenticAuditor] OpenAI init error: {e}")
                 self._record_error("OpenAI client initialization failed", e)
@@ -4501,13 +4565,13 @@ Be specific, actionable, and quantitative. Reference the actual data statistics 
                 if groq_key:
                     self.client = Groq(api_key=groq_key)
                     self.provider = "groq"
-                    print(f"[AgenticAuditor] Using Groq provider")
+                    print("[AgenticAuditor] Using Groq provider")
                 else:
                     self.last_error = (
                         "No LLM API key found. Set OPENAI_API_KEY or GROQ_API_KEY."
                     )
             except ImportError:
-                print(f"[AgenticAuditor] Using template fallback")
+                print("[AgenticAuditor] Using template fallback")
                 self.last_error = (
                     "No LLM provider available. Install `openai` or `groq` and set an API key."
                 )
@@ -4933,7 +4997,7 @@ def run_counterfactual_reasoning(df: pd.DataFrame, target_col: str = None,
             'top_features': top_features_str,
             'class_balance': class_balance_str,
             'common_errors': f"Minority class '{minority_class}' ({minority_pct:.1f}%) may be under-predicted",
-            'weak_groups': f"Samples with rare combinations of top features",
+            'weak_groups': "Samples with rare combinations of top features",
         }
         
         progress(0.3, desc="Performing counterfactual analysis...")
@@ -6128,7 +6192,7 @@ def run_ab_test_simulation(df: pd.DataFrame, target_col: str = None,
     try:
         from sklearn.model_selection import train_test_split
         from sklearn.preprocessing import LabelEncoder, StandardScaler
-        from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+        from sklearn.ensemble import GradientBoostingClassifier
         from sklearn.metrics import accuracy_score
         from scipy import stats
         
@@ -6357,30 +6421,26 @@ def create_placeholder_image(message: str = "No data") -> np.ndarray:
 def create_progress_bar(step: int) -> str:
     """Create progress bar HTML."""
     steps = ['Upload', 'Detect', 'Validate', 'Baseline', 'Clean', 'Features', 'Train', 'Insights']
-    
-    html = '<div style="display: flex; justify-content: space-between; padding: 20px; background: #f8f9fa; border-radius: 12px; margin-bottom: 20px;">'
-    
+
+    html = '<div class="progress-shell"><div class="progress-track">'
+
     for i, name in enumerate(steps):
+        state_class = "is-pending"
+        icon = str(i + 1)
         if i < step:
-            color = '#00b894'
-            icon = 'OK'
+            state_class = "is-done"
+            icon = "OK"
         elif i == step:
-            color = '#667eea'
-            icon = str(i + 1)
-        else:
-            color = '#dfe6e9'
-            icon = str(i + 1)
-        
+            state_class = "is-active"
+
         html += f'''
-        <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
-            <div style="width: 40px; height: 40px; border-radius: 50%; background: {color}; 
-                        display: flex; align-items: center; justify-content: center; 
-                        color: white; font-weight: bold; margin-bottom: 8px; font-size: 0.8em;">{icon}</div>
-            <div style="font-size: 0.85em; color: {'#333' if i <= step else '#999'};">{name}</div>
+        <div class="progress-step {state_class}">
+            <div class="progress-dot">{icon}</div>
+            <div class="progress-label">{name}</div>
         </div>
         '''
-    
-    html += '</div>'
+
+    html += '</div></div>'
     return html
 
 
@@ -6682,43 +6742,178 @@ def export_production():
         )
     
     try:
-        if state.X_train is None:
-            return None, "No feature matrix available. Train a model first."
         if not state.target_column:
             return None, "No target column set. Upload data and select a target first."
+        if state.X_train is None:
+            return None, "No feature matrix available. Train a model first."
+
+        # Prefer original feature names; fall back to generated names if needed.
+        if hasattr(state.X_train, "columns"):
+            feature_columns = list(state.X_train.columns)
+        else:
+            shape = getattr(state.X_train, "shape", None)
+            if shape is None or len(shape) < 2:
+                return None, "Feature matrix is invalid. Re-run model training and try export again."
+            feature_columns = [f"feature_{i}" for i in range(int(shape[1]))]
+
+        if not feature_columns:
+            return None, "No feature columns found. Re-run model training and try export again."
 
         zip_path = create_production_export(
             model=model_to_export,
-            feature_columns=list(state.X_train.columns),
+            feature_columns=feature_columns,
             target_column=state.target_column,
             task_type=state.task_type,
             model_name=getattr(state, "model_name", "metaai_model"),
             accuracy=float(getattr(state, "best_score", 0.0) or 0.0),
             preprocessors=getattr(state, "preprocessors", None),
         )
+        zip_path = os.path.abspath(str(zip_path))
+        if not os.path.exists(zip_path):
+            return None, "Export failed: package file was not found on disk."
         return zip_path, "Production package exported successfully!"
     except Exception as e:
         return None, f"Error: {str(e)}"
 
 
+def get_mlflow_status() -> str:
+    """Show MLflow tracking status for this dashboard."""
+    tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "sqlite:///./mlflow.db")
+    experiment_name = "Meta-AI-Models"
+    ui_hint = "Run `mlflow ui --backend-store-uri sqlite:///mlflow.db` and open http://127.0.0.1:5000"
+
+    try:
+        import mlflow  # type: ignore
+
+        mlflow.set_tracking_uri(tracking_uri)
+        mlflow.set_experiment(experiment_name)
+        exp = mlflow.get_experiment_by_name(experiment_name)
+        exp_id = exp.experiment_id if exp else None
+        run_count = 0
+        if exp_id is not None:
+            try:
+                run_count = len(mlflow.search_runs(experiment_ids=[exp_id], max_results=200))
+            except Exception:
+                run_count = 0
+
+        return f"""### MLflow Status
+- **Tracking URI:** `{tracking_uri}`
+- **Experiment:** `{experiment_name}`
+- **Recorded Runs (up to 200 scanned):** `{run_count}`
+
+**How to view UI:** {ui_hint}
+"""
+    except Exception as e:
+        return f"""### MLflow Status
+- **Tracking URI:** `{tracking_uri}`
+- **Experiment:** `{experiment_name}`
+- **Status:** Not available in current environment (`{str(e)}`)
+
+**How to enable:** `pip install mlflow`  
+**How to view UI:** {ui_hint}
+"""
+
+
 # ==================== CUSTOM CSS ====================
 
 CUSTOM_CSS = """
+.gradio-container {
+    max-width: 1600px !important;
+    background: #0f172a !important;
+}
+
 .main-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4f6edb 0%, #5a67d8 100%);
     padding: 30px;
     border-radius: 16px;
     margin-bottom: 24px;
     color: white;
     text-align: center;
-    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+    border: 1px solid rgba(79, 110, 219, 0.18);
+    box-shadow: 0 8px 24px rgba(79, 110, 219, 0.22);
 }
 
 .main-header h1 { margin: 0; font-size: 2.5em; font-weight: 700; }
 .main-header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 1.1em; }
 
-.gradio-container { max-width: 1600px !important; }
-.gr-button-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; }
+.gr-block, .gr-box, .gr-form, .gr-group, .gr-accordion {
+    border-radius: 14px !important;
+    border: 1px solid #334155 !important;
+    background: #111827 !important;
+    box-shadow: 0 1px 2px rgba(2, 6, 23, 0.35);
+}
+
+.gr-button-primary {
+    background: #4f6edb !important;
+    border: 1px solid #3f5bc2 !important;
+}
+
+.gr-button-secondary {
+    background: #1f2937 !important;
+    color: #e2e8f0 !important;
+    border: 1px solid #475569 !important;
+}
+
+.gr-tabs .tabitem {
+    background: #1e293b !important;
+    border-radius: 12px !important;
+    margin-right: 6px !important;
+    border: 1px solid #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+.gr-tabs .tabitem.selected {
+    background: #1e3a8a !important;
+    border-color: #4f6edb !important;
+    color: #ffffff !important;
+}
+
+.progress-shell {
+    padding: 14px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    background: #111827;
+    border: 1px solid #334155;
+    box-shadow: 0 1px 2px rgba(2, 6, 23, 0.35);
+}
+
+.progress-track {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.progress-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.75em;
+}
+
+.progress-label {
+    font-size: 0.82em;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.progress-step.is-done .progress-dot { background: #16a34a; }
+.progress-step.is-active .progress-dot { background: #4f6edb; box-shadow: 0 0 0 3px rgba(79, 110, 219, 0.16); }
+.progress-step.is-pending .progress-dot { background: #cbd5e1; color: #334155; }
+.progress-step.is-done .progress-label,
+.progress-step.is-active .progress-label { color: #e2e8f0; }
 """
 
 
@@ -6741,8 +6936,8 @@ def build_dashboard():
         # Header
         gr.HTML("""
         <div class="main-header">
-            <h1>MetaAI Pro v3.0</h1>
-            <p>Enterprise AutoML Platform | Advanced Data Ingestion Pipeline</p>
+            <h1>Meta AI</h1>
+            <p>An Intelligent System for Automated Machine<br>Learning Pipeline Generation</p>
         </div>
         """)
         
@@ -7616,6 +7811,20 @@ def build_dashboard():
                         
                         monitoring_chart = gr.Image(label="30-Day Dashboard")
                         monitoring_report = gr.Markdown("")
+                    
+                    # ----- Subtab 5: MLflow Tracking -----
+                    with gr.Tab("MLflow Tracking"):
+                        gr.Markdown("""
+                        ### MLflow Experiment Tracking
+
+                        Training runs from this dashboard are logged to MLflow under:
+                        - **Experiment:** `Meta-AI-Models`
+                        - **Default Tracking URI:** `sqlite:///./mlflow.db`
+
+                        Use the status button below, then open MLflow UI at `http://127.0.0.1:5000`.
+                        """)
+                        mlflow_status_btn = gr.Button("Check MLflow Status", variant="secondary")
+                        mlflow_status_md = gr.Markdown("")
             
             # ========== TAB 10: EXPORT ==========
             with gr.Tab("Export"):
@@ -7874,6 +8083,13 @@ def build_dashboard():
             fn=simulate_production_monitoring,
             inputs=[df_engineered_state, monitoring_target],
             outputs=[monitoring_chart, monitoring_report]
+        )
+
+        # MLflow status
+        mlflow_status_btn.click(
+            fn=get_mlflow_status,
+            inputs=[],
+            outputs=[mlflow_status_md]
         )
         
         # Export

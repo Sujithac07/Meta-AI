@@ -3899,17 +3899,28 @@ def run_shap_analysis(df: pd.DataFrame, target_col: str = None, sample_idx: int 
         
         progress(0.1, desc="Preparing data for SHAP...")
         
-        # Prepare data
-        feature_cols = [c for c in df.columns if c != target_col]
-        numeric_cols = df[feature_cols].select_dtypes(include=[np.number]).columns.tolist()
-        
-        X = df[numeric_cols].fillna(df[numeric_cols].median())
-        y = df[target_col].copy()
-        
-        # Scale features
-        scaler = StandardScaler()
-        X_scaled = scaler.fit_transform(X)
-        X_df = pd.DataFrame(X_scaled, columns=numeric_cols)
+        # Prefer the exact feature matrix used during training (avoids SHAP shape mismatch)
+        if (
+            state.X_train is not None
+            and isinstance(state.X_train, pd.DataFrame)
+            and len(state.X_train) == len(df)
+        ):
+            X_df = state.X_train.copy()
+            numeric_cols = X_df.columns.tolist()
+        else:
+            feature_cols = [c for c in df.columns if c != target_col]
+            numeric_cols = df[feature_cols].select_dtypes(include=[np.number]).columns.tolist()
+            if len(numeric_cols) == 0:
+                return (
+                    create_placeholder_image("No numeric features"),
+                    create_placeholder_image("No numeric features"),
+                    "SHAP requires numeric features. No numeric columns found after preprocessing.",
+                    pd.DataFrame(),
+                )
+            X = df[numeric_cols].fillna(df[numeric_cols].median())
+            scaler = StandardScaler()
+            X_scaled = scaler.fit_transform(X)
+            X_df = pd.DataFrame(X_scaled, columns=numeric_cols)
         
         # Sample for speed
         max_samples = 500

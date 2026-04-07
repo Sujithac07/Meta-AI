@@ -5,13 +5,22 @@ Optimized for speed while maintaining quality
 
 import pandas as pd
 import numpy as np
-from typing import Dict, Any, Tuple
+from typing import Dict, List, Any, Tuple, Optional
 from sklearn.model_selection import cross_val_score, StratifiedKFold, KFold
 from sklearn.ensemble import (
-    RandomForestClassifier, RandomForestRegressor,
-    StackingClassifier, StackingRegressor,
+    RandomForestClassifier,
+    RandomForestRegressor,
+    StackingClassifier,
+    StackingRegressor,
+    GradientBoostingClassifier,
+    GradientBoostingRegressor,
+    ExtraTreesClassifier,
+    ExtraTreesRegressor,
+    HistGradientBoostingClassifier,
+    HistGradientBoostingRegressor,
 )
 from sklearn.linear_model import LogisticRegression, Ridge
+from sklearn.metrics import accuracy_score, r2_score
 import warnings
 from datetime import datetime
 
@@ -39,7 +48,7 @@ except ImportError:
     LIGHTGBM_AVAILABLE = False
 
 try:
-    from catboost import CatBoostClassifier, CatBoostRegressor  # noqa: F401
+    from catboost import CatBoostClassifier, CatBoostRegressor
     CATBOOST_AVAILABLE = True
 except ImportError:
     CATBOOST_AVAILABLE = False
@@ -51,10 +60,17 @@ class EliteTrainer:
     Optimized: 10 trials, 3-fold CV, sampling, aggressive pruning.
     """
     
-    def __init__(self, random_state: int = 42, n_trials: int = 10, n_jobs: int = -1):
+    def __init__(
+        self,
+        random_state: int = 42,
+        n_trials: int = 10,
+        n_jobs: int = -1,
+        max_competitors: int = 8,
+    ):
         self.random_state = random_state
         self.n_trials = min(n_trials, 15)  # Cap at 15 trials max
         self.n_jobs = n_jobs
+        self.max_competitors = max(3, min(max_competitors, 10))
         self.best_models = {}
         self.tournament_results = {}
         self.super_model = None
@@ -81,7 +97,7 @@ class EliteTrainer:
         # Suppress Optuna logs
         optuna.logging.set_verbosity(optuna.logging.WARNING)
         
-        # OPTIMIZATION: Only use 2-3 fast models
+        # Train several algorithms (default up to 8), then pick champion by CV score
         competitors = self._get_competitors(task_type)
         
         report = {
@@ -99,7 +115,7 @@ class EliteTrainer:
         
         # Run tournament for each competitor
         for name, config in competitors.items():
-            print(f"  ⚡ {name}...", end=" ", flush=True)
+            print(f"  [MODEL] {name}...", end=" ", flush=True)
             study_result = self._run_optuna_study(
                 name, config, X_sample, y_sample, task_type, cv_folds
             )
@@ -133,42 +149,77 @@ class EliteTrainer:
             for i, (name, info) in enumerate(rankings)
         ]
         
-        # Create Super-Model (FAST - use top 2 only)
+        # Champion = best single model by CV (what we deploy & explain with SHAP)
+        champion_name = rankings[0][0] if rankings else None
+        champion_model = self.best_models[champion_name]["model"] if champion_name else None
+        report["champion"] = {
+            "model": champion_name,
+            "score": round(rankings[0][1]["score"], 4) if rankings else None,
+            "note": "Primary model: best CV score among all trained algorithms (not the stacking meta-learner).",
+        }
+        
+        # Optional stacking blend (for metrics only) — top-K bases + non-linear meta
         if len(self.best_models) >= 2:
-            print("  🚀 Building Super-Model...", end=" ", flush=True)
+            print("  [STACK] Evaluating stacking blend (optional)...", end=" ", flush=True)
             self.super_model, stacking_report = self._create_super_model(
                 X_clean, y, task_type, cv_folds=2
             )
             print("✓")
             report["super_model"] = stacking_report
+        else:
+            report["super_model"] = {"status": "skipped", "reason": "need at least 2 trained models"}
         
-        return self.super_model, report
+        if not rankings:
+            report["error"] = "No models finished training successfully."
+            return None, report
+        
+        # Return the *single best* estimator so SHAP/UI match tournament winner
+        return champion_model, report
     
     def _get_competitors(self, task_type: str) -> Dict:
-        """Get FAST model competitors - limit to 3 models."""
+        """Up to ``max_competitors`` algorithms (trees, boosting, linear, etc.)."""
         competitors = {}
-        
-        # Priority 1: LightGBM (fastest)
-        if LIGHTGBM_AVAILABLE:
-            competitors['LightGBM'] = {
-                'class': LGBMClassifier if task_type == 'classification' else LGBMRegressor,
-                'search_space': self._lgbm_search_space
-            }
-        
-        # Priority 2: XGBoost
-        if XGBOOST_AVAILABLE and len(competitors) < 3:
-            competitors['XGBoost'] = {
-                'class': XGBClassifier if task_type == 'classification' else XGBRegressor,
-                'search_space': self._xgb_search_space
-            }
-        
-        # Priority 3: Random Forest (always available, fast)
-        if len(competitors) < 3:
-            competitors['RandomForest'] = {
-                'class': RandomForestClassifier if task_type == 'classification' else RandomForestRegressor,
-                'search_space': self._rf_search_space
-            }
-        
+        cap = self.max_competitors
+        clf = task_type == "classification"
+
+        def add(name: str, cls, space_fn):
+            if len(competitors) >= cap:
+                return
+            competitors[name] = {"class": cls, "search_space": space_fn}
+
+        if clf:
+            if LIGHTGBM_AVAILABLE:
+                add("LightGBM", LGBMClassifier, self._lgbm_search_space)
+            if XGBOOST_AVAILABLE:
+                add("XGBoost", XGBClassifier, self._xgb_search_space)
+            add("RandomForest", RandomForestClassifier, self._rf_search_space)
+            add("HistGradientBoosting", HistGradientBoostingClassifier, self._hgb_search_space)
+            add("GradientBoosting", GradientBoostingClassifier, self._gb_search_space)
+            add("ExtraTrees", ExtraTreesClassifier, self._et_search_space)
+            add("LogisticRegression", LogisticRegression, self._lr_search_space)
+            if CATBOOST_AVAILABLE:
+                add("CatBoost", CatBoostClassifier, self._catboost_search_space)
+        else:
+            if LIGHTGBM_AVAILABLE:
+                add("LightGBM", LGBMRegressor, self._lgbm_search_space)
+            if XGBOOST_AVAILABLE:
+                add("XGBoost", XGBRegressor, self._xgb_search_space)
+            add("RandomForest", RandomForestRegressor, self._rf_search_space)
+            add("HistGradientBoosting", HistGradientBoostingRegressor, self._hgb_search_space_reg)
+            add("GradientBoosting", GradientBoostingRegressor, self._gb_search_space_reg)
+            add("ExtraTrees", ExtraTreesRegressor, self._et_search_space_reg)
+            add("Ridge", Ridge, self._ridge_search_space)
+            if CATBOOST_AVAILABLE:
+                add("CatBoost", CatBoostRegressor, self._catboost_search_space)
+
+        # sklearn fallbacks if deps missing
+        if len(competitors) < 3 and clf:
+            add("RandomForest", RandomForestClassifier, self._rf_search_space)
+            add("LogisticRegression", LogisticRegression, self._lr_search_space)
+        elif len(competitors) < 3:
+            add("RandomForest", RandomForestRegressor, self._rf_search_space)
+            add("Ridge", Ridge, self._ridge_search_space)
+
         return competitors
     
     def _run_optuna_study(self, name: str, config: Dict,
@@ -201,6 +252,13 @@ class EliteTrainer:
                 params['verbose'] = False
             if name == 'RandomForest':
                 params['n_jobs'] = self.n_jobs
+            if name in ('HistGradientBoosting', 'ExtraTrees', 'GradientBoosting'):
+                params['random_state'] = self.random_state
+            if name == 'ExtraTrees':
+                params['n_jobs'] = self.n_jobs
+            if name == 'LogisticRegression':
+                params['solver'] = params.get('solver', 'lbfgs')
+                params['max_iter'] = params.get('max_iter', 2000)
             
             model = config['class'](**params)
             
@@ -238,6 +296,13 @@ class EliteTrainer:
             best_params['verbose'] = False
         if name == 'RandomForest':
             best_params['n_jobs'] = self.n_jobs
+        if name in ('HistGradientBoosting', 'ExtraTrees', 'GradientBoosting'):
+            best_params['random_state'] = self.random_state
+        if name == 'ExtraTrees':
+            best_params['n_jobs'] = self.n_jobs
+        if name == 'LogisticRegression':
+            best_params['solver'] = best_params.get('solver', 'lbfgs')
+            best_params['max_iter'] = best_params.get('max_iter', 2000)
         
         best_model = config['class'](**best_params)
         best_model.fit(X, y)
@@ -253,15 +318,14 @@ class EliteTrainer:
     
     def _create_super_model(self, X: pd.DataFrame, y: pd.Series,
                            task_type: str, cv_folds: int = 2) -> Tuple[Any, Dict]:
-        """Create FAST Super-Model via Stacking (top 2 models only)."""
+        """Stacking over top-3 single models; shallow GB meta-learner (not plain LR)."""
         sorted_models = sorted(
             self.best_models.items(),
             key=lambda x: x[1]['score'],
             reverse=True
         )
         
-        # Use top 2 models only for speed
-        top_models = sorted_models[:2]
+        top_models = sorted_models[: min(3, len(sorted_models))]
         
         estimators = [
             (name, info['model'])
@@ -269,7 +333,12 @@ class EliteTrainer:
         ]
         
         if task_type == 'classification':
-            meta_learner = LogisticRegression(max_iter=500, random_state=self.random_state)
+            meta_learner = GradientBoostingClassifier(
+                n_estimators=40,
+                max_depth=2,
+                learning_rate=0.1,
+                random_state=self.random_state,
+            )
             super_model = StackingClassifier(
                 estimators=estimators,
                 final_estimator=meta_learner,
@@ -279,7 +348,12 @@ class EliteTrainer:
                 passthrough=False
             )
         else:
-            meta_learner = Ridge(random_state=self.random_state)
+            meta_learner = GradientBoostingRegressor(
+                n_estimators=40,
+                max_depth=2,
+                learning_rate=0.1,
+                random_state=self.random_state,
+            )
             super_model = StackingRegressor(
                 estimators=estimators,
                 final_estimator=meta_learner,
@@ -304,11 +378,12 @@ class EliteTrainer:
         return super_model, {
             "status": "success",
             "base_models": [name for name, _ in top_models],
-            "meta_learner": "LogisticRegression" if task_type == 'classification' else "Ridge",
+            "meta_learner": "GradientBoosting (shallow)",
             "super_model_score": round(super_score, 4),
             "best_single_score": round(best_single, 4),
             "improvement": round(super_score - best_single, 4),
-            "outperforms_singles": super_score > best_single
+            "outperforms_singles": super_score > best_single,
+            "note": "For reference only; the deployed model is the single best from rankings.",
         }
     
     # OPTIMIZED search spaces - narrower ranges, fewer params
@@ -344,6 +419,54 @@ class EliteTrainer:
             'min_samples_split': trial.suggest_int('min_samples_split', 2, 10),
             'min_samples_leaf': trial.suggest_int('min_samples_leaf', 1, 5),
         }
+    
+    def _lr_search_space(self, trial):
+        return {
+            'C': trial.suggest_float('C', 0.01, 10.0, log=True),
+            'solver': 'lbfgs',
+            'max_iter': 2000,
+        }
+    
+    def _ridge_search_space(self, trial):
+        return {'alpha': trial.suggest_float('alpha', 0.1, 100.0, log=True)}
+    
+    def _hgb_search_space(self, trial):
+        return {
+            'max_iter': trial.suggest_int('max_iter', 80, 250),
+            'max_depth': trial.suggest_int('max_depth', 3, 10),
+            'learning_rate': trial.suggest_float('learning_rate', 0.03, 0.3, log=True),
+            'min_samples_leaf': trial.suggest_int('min_samples_leaf', 10, 40),
+        }
+    
+    def _hgb_search_space_reg(self, trial):
+        return self._hgb_search_space(trial)
+    
+    def _gb_search_space(self, trial):
+        return {
+            'n_estimators': trial.suggest_int('n_estimators', 50, 150),
+            'max_depth': trial.suggest_int('max_depth', 2, 5),
+            'learning_rate': trial.suggest_float('learning_rate', 0.05, 0.25),
+            'subsample': trial.suggest_float('subsample', 0.7, 1.0),
+        }
+    
+    def _gb_search_space_reg(self, trial):
+        return {
+            'n_estimators': trial.suggest_int('n_estimators', 50, 150),
+            'max_depth': trial.suggest_int('max_depth', 2, 5),
+            'learning_rate': trial.suggest_float('learning_rate', 0.05, 0.25),
+            'subsample': trial.suggest_float('subsample', 0.7, 1.0),
+            'loss': 'squared_error',
+        }
+    
+    def _et_search_space(self, trial):
+        return {
+            'n_estimators': trial.suggest_int('n_estimators', 50, 200),
+            'max_depth': trial.suggest_int('max_depth', 5, 20),
+            'min_samples_split': trial.suggest_int('min_samples_split', 2, 12),
+        }
+    
+    def _et_search_space_reg(self, trial):
+        return self._et_search_space(trial)
 
 
 def format_tournament_report(report: Dict) -> str:
@@ -366,6 +489,18 @@ def format_tournament_report(report: Dict) -> str:
     for rank_info in report.get('rankings', []):
         medal = "🥇" if rank_info['rank'] == 1 else "🥈" if rank_info['rank'] == 2 else "🥉" if rank_info['rank'] == 3 else "  "
         lines.append(f"{medal} **#{rank_info['rank']} {rank_info['model']}** - Score: {rank_info['score']:.4f}")
+    
+    champ = report.get("champion") or {}
+    if champ.get("model"):
+        lines.append("")
+        lines.append("### 🎯 Champion (used for export & SHAP)")
+        lines.append("")
+        lines.append(
+            f"- **Model:** `{champ.get('model')}` — **CV score:** {champ.get('score')} "
+            f"(best among all algorithms above)."
+        )
+        if champ.get("note"):
+            lines.append(f"- {champ['note']}")
     
     lines.append("")
     lines.append("### ⚡ Training Details")

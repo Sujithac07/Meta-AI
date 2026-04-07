@@ -12,6 +12,12 @@ matplotlib.use('Agg')
 import io
 import base64
 import warnings
+from sklearn.ensemble import (
+    StackingClassifier,
+    StackingRegressor,
+    VotingClassifier,
+    VotingRegressor,
+)
 
 warnings.filterwarnings('ignore')
 
@@ -59,24 +65,46 @@ class BlackBoxBreaker:
             else:
                 background = self.X
             
-            # Try TreeExplainer first (faster for tree models)
             model_type = type(self.model).__name__
-            
-            if hasattr(self.model, 'estimators_') or 'Forest' in model_type or 'XGB' in model_type or 'LGBM' in model_type or 'CatBoost' in model_type or 'Gradient' in model_type:
+            # Stacking / voting expose estimators_ but are NOT single tree models — TreeExplainer will fail or mislead.
+            if isinstance(
+                self.model,
+                (StackingClassifier, StackingRegressor, VotingClassifier, VotingRegressor),
+            ):
+                self.explainer = shap.KernelExplainer(
+                    self.model.predict_proba
+                    if hasattr(self.model, "predict_proba")
+                    else self.model.predict,
+                    background,
+                )
+                explainer_type = "KernelExplainer"
+            elif (
+                "Forest" in model_type
+                or "XGB" in model_type
+                or "LGBM" in model_type
+                or "CatBoost" in model_type
+                or "GradientBoosting" in model_type
+                or "ExtraTrees" in model_type
+                or "HistGradient" in model_type
+                or "DecisionTree" in model_type
+            ):
                 try:
                     self.explainer = shap.TreeExplainer(self.model)
                     explainer_type = "TreeExplainer"
                 except Exception:
                     self.explainer = shap.KernelExplainer(
-                        self.model.predict_proba if hasattr(self.model, 'predict_proba') else self.model.predict,
-                        background
+                        self.model.predict_proba
+                        if hasattr(self.model, "predict_proba")
+                        else self.model.predict,
+                        background,
                     )
                     explainer_type = "KernelExplainer"
             else:
-                # Use KernelExplainer for other models
                 self.explainer = shap.KernelExplainer(
-                    self.model.predict_proba if hasattr(self.model, 'predict_proba') else self.model.predict,
-                    background
+                    self.model.predict_proba
+                    if hasattr(self.model, "predict_proba")
+                    else self.model.predict,
+                    background,
                 )
                 explainer_type = "KernelExplainer"
             
@@ -139,7 +167,12 @@ class BlackBoxBreaker:
             return self.shap_values, report
             
         except Exception as e:
-            return None, {"error": str(e)}
+            import traceback
+            return None, {
+                "error": str(e),
+                "detail": traceback.format_exc(),
+                "hint": "If this is a stacked model, SHAP uses a slower KernelExplainer; try the champion single model from training.",
+            }
     
     def generate_summary_plot(self, max_display: int = 10) -> Tuple[str, Dict]:
         """
@@ -441,7 +474,14 @@ def create_explainer(model: Any, X: pd.DataFrame) -> BlackBoxBreaker:
 def format_xai_report(report: Dict[str, Any]) -> str:
     """Format XAI report for display."""
     if 'error' in report:
-        return f"Error: {report['error']}"
+        msg = [f"Error: {report['error']}"]
+        if report.get("hint"):
+            msg.append(f"Hint: {report['hint']}")
+        if report.get("detail"):
+            msg.append("")
+            msg.append("Debug detail:")
+            msg.append(str(report["detail"]))
+        return "\n".join(msg)
     
     lines = []
     lines.append("=" * 50)

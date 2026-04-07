@@ -3259,10 +3259,6 @@ def run_stacking_ensemble(df: pd.DataFrame, target_col: str = None,
         # Ensure y is 1D numpy array
         y = np.asarray(y).ravel()
 
-        # Keep export context available regardless of training mode.
-        state.X_train = X.copy()
-        state.y_train = y.copy() if hasattr(y, 'copy') else y
-        
         # Set up cross-validation and scoring based on task type
         if is_classification:
             cv = 3  # Use int for simpler cross-validation
@@ -3280,6 +3276,10 @@ def run_stacking_ensemble(df: pd.DataFrame, target_col: str = None,
             indices = np.random.choice(len(X_scaled), 3000, replace=False)
             X_scaled = X_scaled[indices]
             y = y[indices]
+
+        # Must match what stacking_model.fit() sees (SHAP / predict use this matrix)
+        state.X_train = pd.DataFrame(X_scaled, columns=list(numeric_cols))
+        state.y_train = np.asarray(y).ravel()
         
         progress(0.1, desc="Defining base models...")
         
@@ -3569,6 +3569,60 @@ The ensemble includes:
 
 
 # ==================== XAI / ANALYSIS FUNCTIONS ====================
+
+def _compute_shap_for_model(model, X_sample: pd.DataFrame, task_is_classification: bool):
+    """
+    Compute SHAP values. Stacking / voting models never use TreeExplainer (unsupported or broken).
+    Uses numpy arrays for KernelExplainer to match sklearn predict() input.
+    """
+    import shap
+    from sklearn.ensemble import StackingClassifier, StackingRegressor
+
+    X_np = np.asarray(X_sample, dtype=float)
+    if isinstance(model, (StackingClassifier, StackingRegressor)):
+        bg = shap.sample(X_np, min(100, len(X_np)))
+        fn = (
+            model.predict_proba
+            if task_is_classification and hasattr(model, "predict_proba")
+            else model.predict
+        )
+        explainer = shap.KernelExplainer(fn, bg)
+        shap_values = explainer.shap_values(X_np, nsamples=min(100, 50))
+        return explainer, shap_values, "KernelExplainer (stacking)"
+
+    model_type = type(model).__name__
+    tree_like = any(
+        x in model_type
+        for x in (
+            "Forest",
+            "XGB",
+            "LGBM",
+            "CatBoost",
+            "ExtraTrees",
+            "GradientBoosting",
+            "HistGradient",
+            "DecisionTree",
+            "AdaBoost",
+        )
+    )
+    if tree_like:
+        try:
+            explainer = shap.TreeExplainer(model)
+            shap_values = explainer.shap_values(X_np)
+            return explainer, shap_values, "TreeExplainer"
+        except Exception:
+            pass
+
+    bg = shap.sample(X_np, min(100, len(X_np)))
+    fn = (
+        model.predict_proba
+        if task_is_classification and hasattr(model, "predict_proba")
+        else model.predict
+    )
+    explainer = shap.KernelExplainer(fn, bg)
+    shap_values = explainer.shap_values(X_np, nsamples=min(100, 50))
+    return explainer, shap_values, "KernelExplainer"
+
 
 def run_normal_analysis(df: pd.DataFrame, target_col: str = None, 
                         progress=gr.Progress()) -> Tuple[np.ndarray, str, pd.DataFrame]:
@@ -3933,18 +3987,30 @@ def run_shap_analysis(df: pd.DataFrame, target_col: str = None, sample_idx: int 
         
         progress(0.3, desc="Computing SHAP values (this may take a moment)...")
         
-        # Get SHAP explainer
-        model = state.trained_model
-        
-        # Use TreeExplainer for tree-based models, otherwise KernelExplainer
+        model = state.trained_model or state.model
+        if model is None:
+            return (
+                create_placeholder_image("No model"),
+                create_placeholder_image("No model"),
+                "No trained model in memory. Train again (Elite tournament or Stacking), then retry SHAP.",
+                pd.DataFrame(),
+            )
+        task_is_classification = getattr(state, "task_type", "classification") == "classification"
         try:
-            explainer = shap.TreeExplainer(model)
-            shap_values = explainer.shap_values(X_sample)
-        except:
-            # Fallback to KernelExplainer (slower)
-            background = shap.sample(X_sample, min(100, len(X_sample)))
-            explainer = shap.KernelExplainer(model.predict, background)
-            shap_values = explainer.shap_values(X_sample, nsamples=100)
+            _expl, shap_values, _expl_name = _compute_shap_for_model(
+                model, X_sample, task_is_classification
+            )
+        except Exception as e:
+            import traceback
+            return (
+                create_placeholder_image("SHAP error"),
+                create_placeholder_image("SHAP error"),
+                "SHAP could not run on this model.\n\n"
+                "- If you used **Stacking Ensemble**, re-run that tab once (fixed scaled-feature mismatch).\n"
+                "- Stacking uses a slower KernelExplainer; wait or reduce dataset size.\n\n"
+                f"**Detail:** {e}\n\n```\n{traceback.format_exc()}\n```",
+                pd.DataFrame(),
+            )
         
         # Handle multi-class (take first class or average)
         if isinstance(shap_values, list):
